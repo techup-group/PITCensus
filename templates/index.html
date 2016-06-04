@@ -2,6 +2,46 @@
      sent to the invoice. Fields are defined in html.py -->
 {% extends "layout.html" %}
 {% block body %}
+
+<script src="http://maps.google.com/maps/api/js"></script>
+
+<!-- Get coordinates and generate Google map -->
+<script>
+  x = navigator.geolocation;
+  x.getCurrentPosition(success, failure);
+  function success(position)
+  {
+    // save coordiates for later
+    var lat = position.coords.latitude;
+    var long = position.coords.longitude;
+    
+    // Google ready coordinates
+    var coords = new google.maps.LatLng(lat, long);
+
+    // set options for map (max zoom = 20)
+    var mapOptions = {
+      zoom: 16,
+      center: coords,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+
+    // create map with marker at coordinates
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    var marker = new google.maps.Marker({map: map, position: coords});
+  }
+  function failure()
+  {
+    $('#latitude').html("<p>Co-ordinates not availables</p>");
+  }
+</script>
+
+<style>
+#map {
+  width:400px;
+  height:400px;
+}
+</style>
+
 <style>
 .check-row {
 	width: 0% !important;
@@ -23,6 +63,16 @@
 				  	</div>
 				{% endfor %}
 			</div>
+		</div>
+
+		<div id="map">
+		<!--- Google Maps divider -->
+		</div>
+
+		<div id="latitude">
+		</div>
+
+		<div id="longitude">
 		</div>
 		
 		<!-- Submit -->
