@@ -1,13 +1,24 @@
 #!/usr/bin/env python
 from flask import Flask, request, render_template, redirect, url_for, flash
+import sqlite3
 import flask, jinja2
 import sys, json, os
 import html
 
+# ---------------------------------------------------------------------------- #
+# connect database
+conn = sqlite3.connect('database.db')
+
+# create cursor
+c = conn.cursor()
+
+# create main table
+try: c.execute('''CREATE TABLE entries
+				(volunteer, sleep_location, sleep_location_detail, first_name, last_name, ssn, dob, age)''')
+except: pass
 
 # ---------------------------------------------------------------------------- #
-
-#Flask Application
+# Flask Application
 app = Flask("THHI Homeless PIT Survey", static_url_path = "")
 app.secret_key = "roflmao"
 
