@@ -27,6 +27,49 @@ index_general_inputs = {
 		 		{"label":"Answer2", "id":"12"},
 		 		{"label":"Other", "id":"13"}
 		 	]
+		},
+		{
+		    "label":"Please tell me your first name:", 
+		    "type":"text",
+		    "id":"21"
+		},
+		{
+		    "label":"Please tell me the first 3 letters of your last name:",
+		    "id":"31",
+		    "type":"text"
+		},
+    	{ 	"label":"Last 4 of your SSN:", 
+    		"id":"41",
+    		"type":"text" 
+		},
+		{
+		    "label":"What is your date of birth? or Age",
+		    "type":"radio",
+		    "other_id":"54",
+		    "inputs":[
+		        { "label":"DOB", "id":"51" },
+		        { "label":"Age", "id":"52" },
+		        { "label":"Other", "id":"53" }
+		    ]
+		},
+		{
+		    "label":"Are you:",
+		    "type":"radio",
+		    "other_id":"65",
+		    "inputs": [
+		        { "label":"Male", "id":"61" },
+		        { "label":"Female", "id":"62" },
+		        { "label":"Transgender M to F", "id":"63" },
+		        { "label":"Transgender F to M", "id":"64" }
+		    ]
+		},
+		{
+		    "label":"Are you Hispanic or Latino?",
+		    "type":"radio",
+		    "inputs":[
+		        { "label":"Yes", "id":"71" },
+		        { "label":"No",  "id":"72" }
+		    ]
 		}
 	]
 }
