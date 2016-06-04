@@ -14,6 +14,10 @@
     // save coordiates for later
     var lat = position.coords.latitude;
     var long = position.coords.longitude;
+
+    // update hidden input form value
+    $('#latitude').val(lat);
+    $('#longitude').val(long);
     
     // Google ready coordinates
     var coords = new google.maps.LatLng(lat, long);
@@ -31,7 +35,7 @@
   }
   function failure()
   {
-    $('#latitude').html("<p>Co-ordinates not availables</p>");
+    return;
   }
 </script>
 
@@ -112,14 +116,14 @@
 		  <h4>If a person reports they are living in a non-homeless situation.  Examples include:  Rental apartment/home, staying or living with friends or family, permanent supportive housing, long term care or nursing home, residential project or halfway house, or hotel/motel paid for by self.</h4>
 		</div>
 		</div>
-		
+
 		<!--- Google Maps divider -->
 		<p class="lead"><span class="glyphicon glyphicon-map-marker"></span>Map Location</p>
 		<div class="well">
 			<div id="map"></div>
-			<div id="latitude"></div>
-			<div id="longitude"></div>
 		</div>
+		<input type="hidden" class="form-control input-sm" name="latitude">
+		<input type="hidden" class="form-control input-sm" name="longitude">
 
 		<!-- Submit -->
 		<p class="lead"><span class="glyphicon glyphicon-check"></span>Submit</p>
