@@ -4,6 +4,7 @@ import flask, jinja2
 import sys, json, os
 import html
 
+
 # ---------------------------------------------------------------------------- #
 
 #Flask Application
@@ -21,7 +22,8 @@ def index():
 #The route to POST to when a user fills out the data in index.html
 @app.route('/submit', methods=['POST'])
 def submit_form():
-	pass
+	print request.form
+	return redirect('/')
 
 # ---------------------------------------------------------------------------- #
 
