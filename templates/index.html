@@ -1,0 +1,40 @@
+<!-- This is the template for the index page, containing the data to be
+     sent to the invoice. Fields are defined in html.py -->
+{% extends "layout.html" %}
+{% block body %}
+<style>
+.check-row {
+	width: 0% !important;
+}
+</style>
+<div class="container">
+		<!-- Introduction Text -->
+	<h4>Gimme Shelter Homeless PIT Survey</h4><br/>
+
+	<form method='post' action="{{ url_for('submit_form') }}">
+		<!-- General information block -->
+		<p class="lead"><span class="glyphicon glyphicon-info-sign"></span>General Information</p>
+		<div class="well">
+			<div class="row">
+				{% for item in general_inputs.inputs %}
+					<div class="col-md-3">
+						<b>{{ item.label }}</b>
+						<input type="text" class="form-control input-sm" name="{{ item.id }}"/>
+				  	</div>
+				{% endfor %}
+			</div>
+		</div>
+		
+		<!-- Submit -->
+		<p class="lead"><span class="glyphicon glyphicon-check"></span>Submit</p>
+		<div class="well">
+			<div class="row">
+				<div class="col-md-12">
+					<button type="submit" class="btn fit-width btn-primary">Submit Information</button> 
+				</div> 
+			</div>
+		</div>
+	</form>
+</div>
+{% endblock %}
+
