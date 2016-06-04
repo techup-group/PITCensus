@@ -51,12 +51,13 @@
 		<!-- Introduction Text -->
 	<h4>Tampa/Hillsborough Continuum of Care</h4>
 	<h4>Point in Time (PIT) Survey</h4><br/>
-	<p>Hello, my name is 
-	<input type="text" size="15" name="{{ volunteer }}"/>
-	and I’m a volunteer for the Tampa/Hillsborough Continuum of Care.  We are conducting a survey to count homeless people to provide better services to them in our community.  Your participation is voluntary and your responses will not be shared with anyone outside of our team.  I need to read each question all the way through.  May I have a few minutes of your time?</p>
-	<p>If the person declines to participate please gather as much identifying/descriptive info as possible on the observation survey.</p>
+	
 
 	<form method='post' action="{{ url_for('submit_form') }}">
+	<p>Hello, my name is 
+	<input type="text" size="15" name="volunteer"/>
+	and I’m a volunteer for the Tampa/Hillsborough Continuum of Care.  We are conducting a survey to count homeless people to provide better services to them in our community.  Your participation is voluntary and your responses will not be shared with anyone outside of our team.  I need to read each question all the way through.  May I have a few minutes of your time?</p>
+	<p>If the person declines to participate please gather as much identifying/descriptive info as possible on the observation survey.</p>
 		<!-- General information block -->
 		<p class="lead"><span class="glyphicon glyphicon-info-sign"></span>General Information</p>
 		<div class="well">
