@@ -35,11 +35,11 @@ index_general_inputs = {
 		},
 		{
 		    "label":"Please tell me the first 3 letters of your last name:",
-		    "id":"31"
+		    "id":"31",
 		    "type":"text"
 		},
     	{ 	"label":"Last 4 of your SSN:", 
-    		"id":"41"
+    		"id":"41",
     		"type":"text" 
 		},
 		{
@@ -55,7 +55,7 @@ index_general_inputs = {
 		{
 		    "label":"Are you:",
 		    "type":"radio",
-		    "other_id":"65"
+		    "other_id":"65",
 		    "inputs": [
 		        { "label":"Male", "id":"61" },
 		        { "label":"Female", "id":"62" },
