@@ -4,7 +4,11 @@
 #The "general information" inputs on the index page
 # see index.html to see how these are rendered
 #
-# This is to the replaced with database inputs
+# Types of questions.
+# - Checkboxes (checkbox)
+# - Radio buttons (radio)
+# - Text entry (text)
+# -
 #
 index_general_inputs = {
 	"inputs": [
@@ -12,6 +16,18 @@ index_general_inputs = {
 		{"label": "Test Item 2", "id": "t2"},
 		{"label": "Test Item 3", "id": "t3"},
 		{"label": "Test Item 3", "id": "t4"}
+	],
+	"questions": [
+		{
+			"label": "Please answer this queston?",
+			"type": "radio",
+			"other_id": "14",
+		 	"inputs": [
+		 		{"label":"Answer1", "id":"11"},
+		 		{"label":"Answer2", "id":"12"},
+		 		{"label":"Other", "id":"13"}
+		 	]
+		}
 	]
 }
 
