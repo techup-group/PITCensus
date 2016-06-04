@@ -88,9 +88,8 @@ hr {
 	margin-top: 3px;
 	margin-bottom: 3px;
 }
-/* To pad space before footer */
-/*div.row:last-child {
-	padding-bottom: 50px
-}*/
-
+.btn-group-vertical > .btn, .btn-group > .btn {
+	position: relative;
+	float: none !important
+}
 }

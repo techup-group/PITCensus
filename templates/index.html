@@ -25,6 +25,28 @@
 			</div>
 		</div>
 		
+		<div class="well">
+			<div class="row">
+				{% for question in general_inputs.questions %}
+					<div class="col-md-12">
+					    <b>{{ question.label }}</b>
+						<div class="input-group">
+							  <div class="input-group-btn">
+							  <div class="btn-group" data-toggle="buttons">
+								 {% for input in question.inputs %}
+									  <label class="btn btn-primary">
+										<input type="radio" id="{{ input.id }}" autocomplete="off"> {{ input.label }}
+									  </label>
+								 {% endfor %}
+							  </div>
+							  </div>
+						  <input type="text" class="form-control" id="{{ question.other_id }}" disabled>
+						</div>
+				  	</div>
+				{% endfor %}
+			</div>
+		</div>
+		
 		<!-- Submit -->
 		<p class="lead"><span class="glyphicon glyphicon-check"></span>Submit</p>
 		<div class="well">
