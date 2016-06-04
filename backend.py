@@ -7,15 +7,10 @@ import html
 
 # ---------------------------------------------------------------------------- #
 # connect database
-conn = sqlite3.connect('database.db')
+conn = sqlite3.connect('database.db', check_same_thread=False)
 
 # create cursor
 c = conn.cursor()
-
-# create main table
-try: c.execute('''CREATE TABLE entries
-				(volunteer, sleep_location, sleep_location_detail, first_name, last_name, ssn, dob, age)''')
-except: pass
 
 # ---------------------------------------------------------------------------- #
 # Flask Application
