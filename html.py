@@ -11,6 +11,7 @@ index_general_inputs = {
 		{"label": "Test Item 1", "id": "t1"},
 		{"label": "Test Item 2", "id": "t2"},
 		{"label": "Test Item 3", "id": "t3"},
+		{"label": "Test Item 3", "id": "t4"}
 	]
 }
 
