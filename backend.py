@@ -23,7 +23,7 @@ FIELDS = ['volunteer', 'sleep_location', 'sleep_location_detail', 'first_name', 
 				'gender', 'hispanic', 'race', 'homelessness_duration', 'shelter_frequency', 'shelter_months', 'county_duration',
 				'homelessness_cause', 'foster_status', 'disability_status', 'disability_type', 'veteran_status', 'military_branch',
 				'military_enter_date', 'military_exit_date', 'discharge_type', 'health_insurance_status', 'domestic_violence_status',
-				'felony_status', 'income_amount', 'income_type', 'employment_status', 'family_members', 'family_info',
+				'felony_status', 'income_amount', 'income_type', 'employment_status', 'homeless_children', 'homeless_adults', 'family_info',
 				'survey_time', 'survey_date', 'survey_location']
 
 # ---------------------------------------------------------------------------- #
@@ -54,14 +54,14 @@ def submit_form():
 	print "\nsqlite INSERT string: " + insert_str + "\n"
 
 	# bools to check properly filled out form
-	name_filled = not (request.form["first_name"] == u'')
+	name_filled = not (request.form["first_name"] == "")
 	gender_filled = ("gender" in request.form)
 
 	print name_filled
 	print gender_filled
 
 	# execute insert string
-	if name_filled and gender_filled:
+	if name_filled or gender_filled:
 		c.execute(insert_str)
 	
 	# save and exit database connection
