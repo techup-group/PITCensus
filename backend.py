@@ -37,12 +37,17 @@ def submit_form():
 	# create first part of sqlite execute string
 	insert_str = "INSERT INTO entries VALUES ("
 
+	print "\nUNSORTED form data: " + str(unsorted_list)
+	print "\nSORTED form data: " + str(sorted(unsorted_list))
+
 	# populate string with data from page forms
 	for field in sorted(unsorted_list):
 		insert_str += '"' + str(field[1]) + '",'
 
 	# replace last , with ) to close statement
 	insert_str = insert_str[:-1] + ')'
+
+	print "\nsqlite INSERT string: " + insert_str + "\n"
 
 	# UNCOMMENT
 	# execute insert string
