@@ -14,8 +14,9 @@
  
     var lat = position.coords.latitude;
     var long = position.coords.longitude;
+  	if($('#location').val()=="")
     $('#location').val(lat + "," + long);
-    
+
     var current_date = new Date();
     $('#date').val(current_date.getMonth()+1+"/"+current_date.getDate()+"/"+current_date.getFullYear());
     $('#time').val(current_date.getHours()+":"+current_date.getMinutes());
