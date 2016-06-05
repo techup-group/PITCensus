@@ -50,8 +50,10 @@
 function showSurvey()
 {
 	if($("input[value='No'][name='completed_survey']").is(':checked') && $("input[value='Yes'][name='currently_homeless']").is(':checked'))
+	{
 	$('#general_questions').show();
 	$('#stop_and_eligibility').hide();
+}
 
 }
 $(document).ready(function() {
