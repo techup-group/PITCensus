@@ -28,7 +28,26 @@ def index():
 #The route to POST to when a user fills out the data in index.html
 @app.route('/submit', methods=['POST'])
 def submit_form():
+
 	print request.form
+
+	insert_str = "INSERT INTO entries VALUES ("
+
+	for field in request.form.iterlists():
+		insert_str += '"' + str(field[1]) + '",'
+
+	# replace last , with ) to close statement
+	insert_str = insert_str[:-1] + ')'
+
+	print insert_str
+
+	# execute insert string
+	# c.execute(insert_str)
+	
+	# save and exit database connection
+	conn.commit()
+	conn.close()
+
 	return redirect('/')
 
 # ---------------------------------------------------------------------------- #
