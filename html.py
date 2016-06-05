@@ -88,22 +88,15 @@ index_general_inputs = [
 				"type":"text" 
 			},
 			{
-				"label":"What is your date of birth? or Age",
-				"type":"radio",
-				"id":"age",
-				"inputs": [
-					{ 
-						"type": "radio_group",
-					  	"inputs": [
-							{ "label":"DOB"},
-							{ "label":"Age"},
-							{ "label":"Other"},
-					  	]
-					},
-					{ "label": "Age", "type": "text" },
-					{ "label": "DOB", "type": "text" }
-				]		    
+				"label":"What is your date of birth?",
+				"type":"text",
+				"id":"dob"    
 			},
+			{
+				"label":"What is your age?",
+				"type":"text",
+				"id":"age"		    
+			},			
 			{
 				"label":"Are you:",
 				"type":"radio",
@@ -300,6 +293,79 @@ index_general_inputs = [
 					}
 				]		    
 			},
+	
+			{
+				"label": "What date did you enter the service? (Month/Year)",
+				"type": "text",
+				"id":"military_enter_date",
+			},
+		
+			{
+			"label": "What date did you exit the service? (Month/Year)",
+				"type": "text",
+				"id":"military_exit_date",
+			},
+			{
+				"label": "What type of discharge did you receive?",
+				"id":"discharge_type",
+				"type": "radio",
+				"inputs": [
+					{ 
+						"type": "radio_group",
+					  	"inputs": [
+							{"label":"Honorable"},
+							{"label":"Dishonorable"},
+							{"label":"General"},
+							{"label":"Other than honorable"},
+							{"label":"Bad conduct"},
+							
+					  	]
+					},
+					{"label":"Other", "type":"text"}
+				]
+			},
+			{
+				"label": "Are you covered by Health Insurance?",
+				"id":"health_insurance_status",
+				"type": "radio",
+				"inputs": [
+					{ 
+						"type": "radio_group",
+					  	"inputs": [
+							{"label":"Yes"},
+							{"label":"No"}
+					  	]
+					}
+				]
+			},	
+			{
+				"label": "Are you a domestic violence victim/survivor?",
+				"id":"domestic_violence_status",
+				"type": "radio",
+				"inputs": [
+					{ 
+						"type": "radio_group",
+					  	"inputs": [
+							{"label":"Yes"},
+							{"label":"No"}
+					  	]
+					}
+				]
+			},			
+			{
+				"label": "Have you ever been charged with a felony?",
+				"id":"felony_status",
+				"type": "radio",
+				"inputs": [
+					{ 
+						"type": "radio_group",
+					  	"inputs": [
+							{"label":"Yes"},
+							{"label":"No"}
+					  	]
+					}
+				]
+			},			
 			{
 				"label": "Do you receive any income?",
 				"id":"income_type",
@@ -329,6 +395,16 @@ index_general_inputs = [
 					{"label":"Amount $ /month (Gross)", "type":"text"},
 					{"label":"Other source", "type":"text"}
 				]			    
+			},
+			{
+				"label": "How many other Adult family members are homeless with you now?",
+				"type": "text",
+				"id":"homeless_adults",
+			},
+			{
+				"label": "How many other Children family members are homeless with you now?",
+				"type": "text",
+				"id":"homeless_children",
 			}		
 		]
 	}
