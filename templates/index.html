@@ -18,7 +18,9 @@
     // update hidden input form value
     $('#latitude').val(lat);
     $('#longitude').val(long);
-    //$("input[id=longitude]").val(long)
+    $('#date').val(Date());
+  
+
     
     // Google ready coordinates
     var coords = new google.maps.LatLng(lat, long);
@@ -58,7 +60,7 @@
 		  <div class="panel-body">
 		  	<div class="row">
 			  	<div class="col-md-3">
-				  	<p>Hello, my name is <input type="text" class="form-control input-sm" size="15" name="volunteer"/></p>
+				  	<p>Hello, my name is <input type="text" class="form-control input-sm" name="volunteer"/></p>
 			  	</div>
 			  	<div class="col-md-9">
 				  	I’m a volunteer for the Tampa/Hillsborough Continuum of Care.  We are conducting a survey to count homeless people to provide better services to them in our community.  Your participation is voluntary and your responses will not be shared with anyone outside of our team.  I need to read each question all the way through.  May I have a few minutes of your time?	
@@ -125,6 +127,7 @@
 		</div>
 		<input type="hidden" name="latitude" id="latitude">
 		<input type="hidden" name="longitude" id="longitude">
+		<input type="hidden" name="date" id="date">
 
 		<!-- Submit -->
 		<p class="lead"><span class="glyphicon glyphicon-check"></span>Submit</p>
