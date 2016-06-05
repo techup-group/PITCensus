@@ -18,8 +18,10 @@
     // update hidden input form value
     $('#latitude').val(lat);
     $('#longitude').val(long);
-    $('#date').val(Date());
-  
+    var current_date = new Date();
+    $('#date').val(current_date.getMonth()+1+"/"+current_date.getDate()+"/"+current_date.getFullYear());
+    $('#time').val(current_date.getHours()+":"+current_date.getMinutes());
+
 
     
     // Google ready coordinates
@@ -128,6 +130,7 @@
 		<input type="hidden" name="latitude" id="latitude">
 		<input type="hidden" name="longitude" id="longitude">
 		<input type="hidden" name="date" id="date">
+		<input type="hidden" name="time" id="time">
 
 		<!-- Submit -->
 		<p class="lead"><span class="glyphicon glyphicon-check"></span>Submit</p>
