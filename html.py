@@ -127,7 +127,7 @@ index_general_inputs = [
 				]		    
 			},
 			{
-				"label": "What is your race? (Please circle Primary Race if more than one is indicated):",
+				"label": "What is your race?",
 				"id":"race",
 				"type": "checkbox",
 				"inputs": [
