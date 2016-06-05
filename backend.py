@@ -29,10 +29,13 @@ def index():
 @app.route('/submit', methods=['POST'])
 def submit_form():
 
+	form_dict = {}
+
 	# turn page's form data into a list
 	unsorted_list = []
 	for item in request.form.iterlists():
 		unsorted_list.append(item)
+		form_dict[item[0]] = item[1]
 
 	print form_dict
 
