@@ -11,13 +11,11 @@
   x.getCurrentPosition(success, failure);
   function success(position)
   {
-    // save coordiates for later
+ 
     var lat = position.coords.latitude;
     var long = position.coords.longitude;
-
-    // update hidden input form value
-    $('#latitude').val(lat);
-    $('#longitude').val(long);
+    $('#location').val(lat + "," + long);
+    
     var current_date = new Date();
     $('#date').val(current_date.getMonth()+1+"/"+current_date.getDate()+"/"+current_date.getFullYear());
     $('#time').val(current_date.getHours()+":"+current_date.getMinutes());
@@ -127,8 +125,7 @@
 		<div class="well">
 			<div id="map"></div>
 		</div>
-		<input type="hidden" name="latitude" id="latitude">
-		<input type="hidden" name="longitude" id="longitude">
+		<input type="hidden" name="location" id="location">
 		<input type="hidden" name="date" id="date">
 		<input type="hidden" name="time" id="time">
 
