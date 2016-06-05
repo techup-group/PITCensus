@@ -29,18 +29,22 @@ def index():
 @app.route('/submit', methods=['POST'])
 def submit_form():
 
-	print request.form
+	# turn page's form data into a list
+	unsorted_list = []
+	for item in request.form.iterlists():
+		unsorted_list.append(item)
 
+	# create first part of sqlite execute string
 	insert_str = "INSERT INTO entries VALUES ("
 
-	for field in request.form.iterlists():
+	# populate string with data from page forms
+	for field in sorted(unsorted_list):
 		insert_str += '"' + str(field[1]) + '",'
 
 	# replace last , with ) to close statement
 	insert_str = insert_str[:-1] + ')'
 
-	print insert_str
-
+	# UNCOMMENT
 	# execute insert string
 	# c.execute(insert_str)
 	
