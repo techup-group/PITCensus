@@ -67,40 +67,30 @@
 		  	</div>
 		  </div>
 		</div>
-
-		<!-- General information block -->
-		<p class="lead"><span class="glyphicon glyphicon-info-sign"></span>General Information</p>
+		
+		<!-- Qualify Questions -->
+		<p class="lead"><span class="glyphicon glyphicon-thumbs-up"></span>Qualification Questions</p>
 		<div class="well">
 			<div class="row">
-				{% for item in general_inputs.inputs %}
-					<div class="col-md-3">
-						<b>{{loop.index}}. {{ item.label }}</b>
-						<input type="text" class="form-control input-sm" name="{{ item.id }}"/>
-				  	</div>
-				{% endfor %}
-			</div>
-		</div>
-		<p>
-	
-		<!-- Questions -->
-		<div class="well">
-			<div class="row">
-			{% for question in general_inputs.questions %}
-				<div class="col-md-12">
+			{% for question in general_inputs.qualification %}
+				<div class="col-md-12 colspacer">
 				    <b>{{loop.index}}. {{ question.label }}</b>
-					<div class="input-group">
-						  <div class="input-group-btn">
-						  <div class="btn-group" data-toggle="buttons">
-							 {% for input in question.inputs %}
-								  <label class="btn btn-primary">
-									<input type="radio" id="{{ input.id }}" autocomplete="off"> {{ input.label }}
-								  </label>
-							 {% endfor %}
-						  </div>
-						  </div>
-					  <input type="text" class="form-control" id="{{ question.other_id }}" disabled>
-					</div>
-			  	</div>
+			    </div>
+			    {% if question.type == "text" %}
+		    		<div class="col-md-3">
+						<input type="text" class="form-control input-sm" name="{{ question.id }}"/>
+				    </div>
+			    {% else %}
+					{% for input in question.inputs %}
+						{% set type = question.type %}
+						{% if type|length == 0 or input.type|length > 0 %}
+							{% set type = input.type %}
+						{% endif %}
+						<div class="col-md-4">
+							<input type="{{ type }}" name="{{ input.id }}"> {{ input.label }}
+						</div>
+					 {% endfor %}
+				 {% endif %}
 			{% endfor %}
 			</div>
 		</div>
@@ -116,6 +106,33 @@
 		<div class="col-md-9">
 		  <h4>If a person reports they are living in a non-homeless situation.  Examples include:  Rental apartment/home, staying or living with friends or family, permanent supportive housing, long term care or nursing home, residential project or halfway house, or hotel/motel paid for by self.</h4>
 		</div>
+		</div>
+
+		<!-- General Questions -->
+		<p class="lead"><span class="glyphicon glyphicon-info-sign"></span>Questions</p>
+		<div class="well">
+			<div class="row">
+			{% for question in general_inputs.questions %}
+				<div class="col-md-12 colspacer">
+				    <b>{{loop.index}}. {{ question.label }}</b>
+			    </div>
+			    {% if question.type == "text" %}
+		    		<div class="col-md-3">
+						<input type="text" class="form-control input-sm" name="{{ question.id }}"/>
+				    </div>
+			    {% else %}
+					{% for input in question.inputs %}
+						{% set type = question.type %}
+						{% if type|length == 0 or input.type|length > 0 %}
+							{% set type = input.type %}
+						{% endif %}
+						<div class="col-md-4">
+							<input type="{{ type }}" name="{{ input.id }}"> {{ input.label }}
+						</div>
+					 {% endfor %}
+				 {% endif %}
+			{% endfor %}
+			</div>
 		</div>
 
 		<!--- Google Maps divider -->
