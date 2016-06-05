@@ -13,12 +13,12 @@
   {
     var lat = position.coords.latitude;
     var long = position.coords.longitude;
-  	if($('#location').val()=="")
-    $('#location').val(lat + "," + long);
+  	if($('#survey_location').val()=="")
+    	$('#survey_location').val(lat + "," + long);
 
     var current_date = new Date();
-    $('#date').val(current_date.getMonth()+1+"/"+current_date.getDate()+"/"+current_date.getFullYear());
-    $('#time').val(current_date.getHours()+":"+current_date.getMinutes());
+    $('#survey_date').val(current_date.getMonth()+1+"/"+current_date.getDate()+"/"+current_date.getFullYear());
+    $('#survey_time').val(current_date.getHours()+":"+current_date.getMinutes());
     // Google ready coordinates
     var coords = new google.maps.LatLng(lat, long);
 
@@ -38,8 +38,6 @@
   {
     return;
   }
-  
-  $(".class-name").css("attribute", "value")
 
   //To stop Bootstap's form-control from being bad
   $(".form-control").css("display", "inline")

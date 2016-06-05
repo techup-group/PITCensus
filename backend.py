@@ -37,6 +37,7 @@ def index():
 #The route to POST to when a user fills out the data in index.html
 @app.route('/submit', methods=['POST'])
 def submit_form():
+	print request.form
 
 	# create first part of sqlite execute string
 	insert_str = "INSERT INTO entries VALUES ("
