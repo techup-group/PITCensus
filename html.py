@@ -58,11 +58,10 @@ index_general_inputs = [
 							{"label":"Substance abuse treatment facility","type":"radio"},
 							{"label":"Hospital","type":"radio"},
 							{"label":"Jail, prison, detention facility","type":"radio"},
-							{"label":"For Less than 90 Days","type":"checkbox"},
 					  	]
 					},
-					{"label":"(Other) Transitional Housing(TS):", "type":"text"},
-					{"label":"(Other) Emergency shelter (ES):", "type":"text"}
+					{"label":"Transitional Housing", "type":"text"},
+					{"label":"Emergency shelter", "type":"text"}
 				]				
 			}			
 		]
