@@ -11,7 +11,6 @@
   x.getCurrentPosition(success, failure);
   function success(position)
   {
- 
     var lat = position.coords.latitude;
     var long = position.coords.longitude;
   	if($('#location').val()=="")
@@ -20,8 +19,6 @@
     var current_date = new Date();
     $('#date').val(current_date.getMonth()+1+"/"+current_date.getDate()+"/"+current_date.getFullYear());
     $('#time').val(current_date.getHours()+":"+current_date.getMinutes());
-
-
     
     // Google ready coordinates
     var coords = new google.maps.LatLng(lat, long);
@@ -41,6 +38,8 @@
   {
     return;
   }
+  
+  $(".class-name").css("attribute", "value")
 </script>
 
 <style>
@@ -89,9 +88,17 @@
 						{% if type|length == 0 or input.type|length > 0 %}
 							{% set type = input.type %}
 						{% endif %}
-						<div class="col-md-4">
-							<input type="{{ type }}" name="{{ input.id }}"> {{ input.label }}
-						</div>
+						{% if type == "radio_group" %}
+							 {% for subinput in input.inputs %}
+								<div class="col-md-4">
+									<input type="radio" name="{{ question.id }}" value="{{ subinput.label }}"> {{ subinput.label }}
+								</div>								  
+							 {% endfor %}					
+						{% else %}
+							<div class="col-md-4">
+								<input type="{{ type }}" name="{{ input.id }}"> {{ input.label }}
+							</div>
+						{% endif %}
 					 {% endfor %}
 				 {% endif %}
 			{% endfor %}
@@ -121,7 +128,7 @@
 			    </div>
 			    {% if question.type == "text" %}
 		    		<div class="col-md-3">
-						<input type="text" class="form-control input-sm" name="{{ question.id }}"/>
+						<input type="text" class="form-control better-control input-sm" name="{{ question.id }}"/>
 				    </div>
 			    {% else %}
 					{% for input in question.inputs %}
@@ -129,9 +136,21 @@
 						{% if type|length == 0 or input.type|length > 0 %}
 							{% set type = input.type %}
 						{% endif %}
-						<div class="col-md-4">
-							<input type="{{ type }}" name="{{ input.id }}"> {{ input.label }}
-						</div>
+						{% if type == "radio_group" %}
+							 {% for subinput in input.inputs %}
+								<div class="col-md-4">
+									<input type="radio" name="{{ question.id }}" value="{{ subinput.label }}"> {{ subinput.label }}
+								</div>								  
+							 {% endfor %}					
+						{% elif type == "text" %}
+							<div class="col-md-4">
+								 {{ input.label }} <input type="text" class="input-sm form-control better-control" name="{{ input.id }}">
+							</div>
+						{% else %}
+							<div class="col-md-4">
+								<input type="{{ type }}" name="{{ input.id }}"> {{ input.label }}
+							</div>
+						{% endif %}
 					 {% endfor %}
 				 {% endif %}
 			{% endfor %}
