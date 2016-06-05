@@ -43,7 +43,7 @@ index_general_inputs = {
 		},
 		{
 		    "label": "Where did you stay last night?",
-		    "id": "where_stay_list",
+		    "id": "where_stay_last",
 		    "inputs": [
 		    	{ 
 		    		"type": "radio_group",
@@ -121,27 +121,24 @@ index_general_inputs = {
 		    	{ 
 		    		"type": "radio_group",
 		    	  	"inputs": [
-						{ "label":"Yes"},
-						{ "label":"No"}
+						{"label":"Yes"},
+						{"label":"No"}
 		    	  	]
 		    	}
 	    	]		    
 		},
 		{
-		    "label": "What is your race?(Please circle Primary Race if more than one is indicated):",
+		    "label": "What is your race? (Please circle Primary Race if more than one is indicated):",
 		    "id":"race",
-		    "type": "radio",
+		    "type": "checkbox",
 		    "inputs": [
-		    	{ 
-		    		"type": "radio_group",
-		    	  	"inputs": [
-						{"label":"American Indian/Alaskan Native"},
-						{"label":"Asian"},
-						{"label":"Black/African American"},
-						{"label":"Native Hawaiian/Other Pacific Islander"}
-		    	  	]
-		    	}
-	    	]
+				{"label":"American Indian/Alaskan Native"},
+				{"label":"Asian"},
+				{"label":"Black/African American"},
+				{"label":"Native Hawaiian/Other Pacific Islander"},
+				{"label":"White"},
+				{"label":"Other"}
+    	  	]
 		},
 		{
 		    "label": "How long have you been in this episode of homelessness?",

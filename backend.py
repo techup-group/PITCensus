@@ -28,7 +28,6 @@ def index():
 #The route to POST to when a user fills out the data in index.html
 @app.route('/submit', methods=['POST'])
 def submit_form():
-
 	# turn page's form data into a list
 	unsorted_list = []
 	for item in request.form.iterlists():
