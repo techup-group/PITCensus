@@ -32,6 +32,7 @@
     // create map with marker at coordinates
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
     var marker = new google.maps.Marker({map: map, position: coords});
+
   }
   function failure()
   {
@@ -39,13 +40,15 @@
   }
   
   $(".class-name").css("attribute", "value")
+
 </script>
 
 <!-- Hide/show survey -->
 <script>
-function hideShowSurvey()
+function showSurvey()
 {
-	return;
+	if($("input[value='No'][name='completed_survey']").is(':checked') && $("input[value='Yes'][name='currently_homeless']").is(':checked'))
+	$('#general_questions').show();
 }
 </script>
 
@@ -125,7 +128,11 @@ function hideShowSurvey()
 		</div>
 		</div>
 
+		<!-- Check Eligibility -->
+		<button type="button" id="check_eligibility" name="check_eligibility" onClick="showSurvey()" class="btn btn-info">Check Eligibility</button>
+
 		<!-- General Questions -->
+		<div id="general_questions" name="general_questions" style="display: none;">
 		<p class="lead"><span class="glyphicon glyphicon-info-sign"></span>Questions</p>
 		<div class="well">
 			<div class="row">
@@ -163,6 +170,8 @@ function hideShowSurvey()
 			{% endfor %}
 			</div>
 		</div>
+		</div>
+
 
 		<!--- Google Maps divider -->
 		<p class="lead"><span class="glyphicon glyphicon-map-marker"></span>Map Location</p>
