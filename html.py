@@ -15,6 +15,7 @@ index_general_inputs = [
 	{
 		"topic": "Qualification Questions",
 		"glyphicon": "glyphicon-thumbs-up",
+		"id": "qualification_questions",
 		"questions": [
 			{
 				"label": "Have you completed this survey earlier today?",
@@ -72,6 +73,7 @@ index_general_inputs = [
 	{
 		"topic": "Survey Questions",
 		"glyphicon": "glyphicon-info-sign",
+		"id": "general_questions",
 		"questions": [
 			{
 				"label":"Please tell me your first name:", 
