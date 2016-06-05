@@ -51,6 +51,8 @@ function showSurvey()
 {
 	if($("input[value='No'][name='completed_survey']").is(':checked') && $("input[value='Yes'][name='currently_homeless']").is(':checked'))
 	$('#general_questions').show();
+	$('#stop_and_eligibility').hide();
+
 }
 $(document).ready(function() {
 	$('#general_questions').hide();
@@ -138,6 +140,7 @@ $(document).ready(function() {
 			</div>
 		{% endfor %}
 		
+		<div id="stop_and_eligibility">
 		<!-- Stop Sign -->
 		<div class="row alert alert-info">
 		<div class="col-md-3">
@@ -153,6 +156,7 @@ $(document).ready(function() {
 
 		<!-- Check Eligibility -->
 		<button type="button" id="check_eligibility" name="check_eligibility" onClick="showSurvey()" class="btn btn-info">Check Eligibility</button>
+		</div>
 
 		<!--- Google Maps divider -->
 		<p class="lead"><span class="glyphicon glyphicon-map-marker"></span>Map Location</p>
