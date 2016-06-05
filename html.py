@@ -29,7 +29,7 @@ index_general_inputs = [
 							{"label":"No"}
 					  	]
 					}
-				]				
+				]		
 			},
 			{
 				"label": "Are you currently homeless?",
