@@ -78,44 +78,56 @@ function hideShowSurvey()
 		  </div>
 		</div>
 		
-		<!-- Qualify Questions -->
-		<p class="lead"><span class="glyphicon glyphicon-thumbs-up"></span>Qualification Questions</p>
-		<div class="well">
-			<div class="row">
-			{% for question in general_inputs.qualification %}
-				<div class="col-md-12 colspacer">
-				    <b>{{loop.index}}. {{ question.label }}</b>
-			    </div>
-			    {% if question.type == "text" %}
-		    		<div class="col-md-3">
-						<input type="text" class="form-control better-control input-sm" name="{{ question.id }}"/>
-				    </div>
-			    {% else %}
-					{% for input in question.inputs %}
-						{% set type = question.type %}
-						{% if type|length == 0 or input.type|length > 0 %}
-							{% set type = input.type %}
-						{% endif %}
-						{% if type == "radio_group" %}
-							 {% for subinput in input.inputs %}
-								<div class="col-md-4">
-									<input type="radio" name="{{ question.id }}" value="{{ subinput.label }}"> {{ subinput.label }}
-								</div>								  
-							 {% endfor %}					
-						{% elif type == "text" %}
-							<div class="col-md-4">
-								 <input type="text" class="input-sm form-control better-control" name="{{ question.id }}">{{ input.label }} 
+		<!-- =====================================
+		Generated Survey Questions The Bread and Butter
+		====================================== -->
+		{% for questionset in general_inputs %}
+			<p class="lead"><span class="glyphicon {{ questionset.glyphicon }}"></span>
+				{{ questionset.topic }}</p>
+			<div class="well">
+				<div class="row">
+					{% for question in questionset.questions %}
+						<div class="col-md-12 colspacer">
+							<b>{{loop.index}}. {{ question.label }}</b>
+						</div>
+						{% if question.type == "text" %}
+							<div class="col-md-3">
+								<input type="text" class="form-control better-control input-sm" 
+									name="{{ question.id }}"/>
 							</div>
 						{% else %}
-							<div class="col-md-4">
-								<input type="{{ type }}" value="{{ input.label }}" name="{{ question.id }}"> {{ input.label }}
-							</div>
-						{% endif %}
-					 {% endfor %}
-				 {% endif %}
-			{% endfor %}
+							{% for input in question.inputs %}
+								{% set type = question.type %}
+								{% if type|length == 0 or input.type|length > 0 %}
+									{% set type = input.type %}
+								{% endif %}
+								{% if type == "radio_group" %}
+									 {% for subinput in input.inputs %}
+										<div class="col-md-4">
+											<input type="radio" name="{{ question.id }}" 
+												value="{{ subinput.label }}"> {{ subinput.label }}
+										</div>								  
+									 {% endfor %}					
+								{% elif type == "text" %}
+									<div class="col-md-4">
+										 <input type="text" 
+										 	class="input-sm form-control better-control" 
+										 	name="{{ question.id }}">{{ input.label }} 
+									</div>
+								{% else %}
+									<div class="col-md-4">
+										<input type="{{ type }}" 
+											value="{{ input.label }}" 
+											name="{{ question.id }}"> {{ input.label }}
+									</div>
+								{% endif %}
+							 {% endfor %}
+						 {% endif %}
+					{% endfor %}			
+				</div>
 			</div>
-		</div>
+		{% endfor %}
+		
 		<!-- Stop Sign -->
 		<div class="row alert alert-info">
 		<div class="col-md-3">
@@ -127,45 +139,6 @@ function hideShowSurvey()
 		<div class="col-md-9">
 		  <h4>If a person reports they are living in a non-homeless situation.  Examples include:  Rental apartment/home, staying or living with friends or family, permanent supportive housing, long term care or nursing home, residential project or halfway house, or hotel/motel paid for by self.</h4>
 		</div>
-		</div>
-
-		<!-- General Questions -->
-		<p class="lead"><span class="glyphicon glyphicon-info-sign"></span>Questions</p>
-		<div class="well">
-			<div class="row">
-			{% for question in general_inputs.questions %}
-				<div class="col-md-12 colspacer">
-				    <b>{{loop.index}}. {{ question.label }}</b>
-			    </div>
-			    {% if question.type == "text" %}
-		    		<div class="col-md-3">
-						<input type="text" class="form-control better-control input-sm" name="{{ question.id }}"/>
-				    </div>
-			    {% else %}
-					{% for input in question.inputs %}
-						{% set type = question.type %}
-						{% if type|length == 0 or input.type|length > 0 %}
-							{% set type = input.type %}
-						{% endif %}
-						{% if type == "radio_group" %}
-							 {% for subinput in input.inputs %}
-								<div class="col-md-4">
-									<input type="radio" name="{{ question.id }}" value="{{ subinput.label }}"> {{ subinput.label }}
-								</div>								  
-							 {% endfor %}					
-						{% elif type == "text" %}
-							<div class="col-md-4">
-								 <input type="text" class="input-sm form-control better-control" name="{{ question.id }}">{{ input.label }} 
-							</div>
-						{% else %}
-							<div class="col-md-4">
-								<input type="{{ type }}" value="{{ input.label }}" name="{{ question.id }}"> {{ input.label }}
-							</div>
-						{% endif %}
-					 {% endfor %}
-				 {% endif %}
-			{% endfor %}
-			</div>
 		</div>
 
 		<!--- Google Maps divider -->
