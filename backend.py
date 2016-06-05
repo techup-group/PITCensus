@@ -20,10 +20,10 @@ app.secret_key = "roflmao"
 #
 # Expected fields
 FIELDS = ['volunteer', 'sleep_location', 'sleep_location_detail', 'first_name', 'last_name', 'ssn', 'dob', 'age',
-				'gender', "hispanic", 'race', 'homelessness_duration', 'shelter_frequency', 'shelter_months', 'county_duration',
+				'gender', 'hispanic', 'race', 'homelessness_duration', 'shelter_frequency', 'shelter_months', 'county_duration',
 				'homelessness_cause', 'foster_status', 'disability_status', 'disability_type', 'veteran_status', 'military_branch',
 				'military_enter_date', 'military_exit_date', 'discharge_type', 'health_insurance_status', 'domestic_violence_status',
-				'felony_status', 'income_amount', 'income_type', 'employment_status', 'family_members', 'family_info',
+				'felony_status', 'income_amount', 'income_type', 'employment_status', 'homeless_children', 'homeless_adults', 'family_info',
 				'survey_time', 'survey_date', 'survey_location']
 
 # ---------------------------------------------------------------------------- #
@@ -38,20 +38,14 @@ def index():
 @app.route('/submit', methods=['POST'])
 def submit_form():
 
-	form_dict = {}
-
-	# turn page's form data into a dict
-	for item in request.form.iterlists():
-		form_dict[item[0]] = item[1]
-
 	# create first part of sqlite execute string
 	insert_str = "INSERT INTO entries VALUES ("
 
 	# create INSERT string using form data
 	for field in FIELDS:
 		data = ""
-		if field in form_dict:
-			data = form_dict[field]
+		if field in request.form:
+			data = request.form[field]
 		insert_str += '"' + str(data) + '",'
 
 	# replace last , with ) to close statement
@@ -59,8 +53,16 @@ def submit_form():
 
 	print "\nsqlite INSERT string: " + insert_str + "\n"
 
+	# bools to check properly filled out form
+	name_filled = not (request.form["first_name"] == "")
+	gender_filled = ("gender" in request.form)
+
+	print name_filled
+	print gender_filled
+
 	# execute insert string
-	c.execute(insert_str)
+	if name_filled or gender_filled:
+		c.execute(insert_str)
 	
 	# save and exit database connection
 	conn.commit()
