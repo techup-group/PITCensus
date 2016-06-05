@@ -17,6 +17,15 @@ c = conn.cursor()
 app = Flask("THHI Homeless PIT Survey", static_url_path = "")
 app.secret_key = "roflmao"
 
+#
+# Expected fields
+FIELDS = ['volunteer', 'sleep_location', 'sleep_location_detail', 'first_name', 'last_name', 'ssn', 'dob', 'age',
+				'gender', "hispanic", 'race', 'homelessness_duration', 'shelter_frequency', 'shelter_months', 'county_duration',
+				'homelessness_cause', 'foster_status', 'disability_status', 'disability_type', 'veteran_status', 'military_branch',
+				'military_enter_date', 'military_exit_date', 'discharge_type', 'health_insurance_status', 'domestic_violence_status',
+				'felony_status', 'income_amount', 'income_type', 'employment_status', 'family_members', 'family_info',
+				'survey_time', 'survey_date', 'survey_location']
+
 # ---------------------------------------------------------------------------- #
 # Routing (wiring)
 
@@ -29,29 +38,29 @@ def index():
 @app.route('/submit', methods=['POST'])
 def submit_form():
 
-	# turn page's form data into a list
-	unsorted_list = []
+	form_dict = {}
+
+	# turn page's form data into a dict
 	for item in request.form.iterlists():
-		unsorted_list.append(item)
+		form_dict[item[0]] = item[1]
 
 	# create first part of sqlite execute string
 	insert_str = "INSERT INTO entries VALUES ("
 
-	print "\nUNSORTED form data: " + str(unsorted_list)
-	print "\nSORTED form data: " + str(sorted(unsorted_list))
-
-	# populate string with data from page forms
-	for field in sorted(unsorted_list):
-		insert_str += '"' + str(field[1]) + '",'
+	# create INSERT string using form data
+	for field in FIELDS:
+		data = ""
+		if field in form_dict:
+			data = form_dict[field]
+		insert_str += '"' + str(data) + '",'
 
 	# replace last , with ) to close statement
 	insert_str = insert_str[:-1] + ')'
 
 	print "\nsqlite INSERT string: " + insert_str + "\n"
 
-	# UNCOMMENT
 	# execute insert string
-	# c.execute(insert_str)
+	c.execute(insert_str)
 	
 	# save and exit database connection
 	conn.commit()
