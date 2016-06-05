@@ -53,19 +53,16 @@ index_general_inputs = [
 						"type": "radio_group",
 					  	"inputs": [
 							{"label":"Place not meant for habitation (car, street, abandoned building, etc.)","type":"radio"},
-							{"label":"Emergency shelter (ES)","type":"radio"},
-							{"label":"ES Name:", "type":"text"},
-							{"label":"Transitional housing for homeless (TH)","type":"radio"},
-							{"label":"TH Name:", "type":"text"},
 							{"label":"Hotel/Motel paid for by an agency or organization","type":"radio"},
 							{"label":"Psychiatric facility","type":"radio"},
 							{"label":"Substance abuse treatment facility","type":"radio"},
 							{"label":"Hospital","type":"radio"},
 							{"label":"Jail, prison, detention facility","type":"radio"},
 							{"label":"For Less than 90 Days","type":"checkbox"},
-							{"label":"For 90 Days or more","type":"checkbox"}
 					  	]
-					}
+					},
+					{"label":"(Other) Transitional Housing(TS):", "type":"text"},
+					{"label":"(Other) Emergency shelter (ES):", "type":"text"}
 				]				
 			}			
 		]
@@ -247,21 +244,16 @@ index_general_inputs = [
 				]
 			},
 			{
-				"label": "What type of disabling condition do you have? (you may select more than one condition)?",
+				"label": "What type of disabling condition do you have (you may select more than one condition)?",
 				"type": "checkbox",
 				"id":"disability_type",
 				"inputs": [
-					{ 
-						"type": "radio_group",
-					  	"inputs": [
-							{"label":"Physical"},
-							{"label":"Developmental"},
-							{"label":"Mental health"},
-							{"label":"Alcohol Abuse"},
-							{"label":"Drug Abuse"},
-							{"label":"HIV/AIDS"}
-					  	]
-					}
+					{"label":"Physical"},
+					{"label":"Developmental"},
+					{"label":"Mental health"},
+					{"label":"Alcohol Abuse"},
+					{"label":"Drug Abuse"},
+					{"label":"HIV/AIDS"}
 				]		    
 			},
 			{
