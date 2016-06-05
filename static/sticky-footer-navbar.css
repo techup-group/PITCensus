@@ -95,7 +95,7 @@ hr {
 
 .panel-heading {
   padding-bottom: 20px;
-  background-color: #13BBF2;
+  background-color: #737575 !important;
 }
 
 /* Text box CSS. Copied from Bootstrap */
