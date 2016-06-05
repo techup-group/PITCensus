@@ -7,15 +7,10 @@ import html
 
 # ---------------------------------------------------------------------------- #
 # connect database
-conn = sqlite3.connect('database.db')
+conn = sqlite3.connect('database.db', check_same_thread=False)
 
 # create cursor
 c = conn.cursor()
-
-# create main table
-try: c.execute('''CREATE TABLE entries
-				(volunteer, sleep_location, sleep_location_detail, first_name, last_name, ssn, dob, age)''')
-except: pass
 
 # ---------------------------------------------------------------------------- #
 # Flask Application
@@ -33,7 +28,30 @@ def index():
 #The route to POST to when a user fills out the data in index.html
 @app.route('/submit', methods=['POST'])
 def submit_form():
-	print request.form
+
+	# turn page's form data into a list
+	unsorted_list = []
+	for item in request.form.iterlists():
+		unsorted_list.append(item)
+
+	# create first part of sqlite execute string
+	insert_str = "INSERT INTO entries VALUES ("
+
+	# populate string with data from page forms
+	for field in sorted(unsorted_list):
+		insert_str += '"' + str(field[1]) + '",'
+
+	# replace last , with ) to close statement
+	insert_str = insert_str[:-1] + ')'
+
+	# UNCOMMENT
+	# execute insert string
+	# c.execute(insert_str)
+	
+	# save and exit database connection
+	conn.commit()
+	conn.close()
+
 	return redirect('/')
 
 # ---------------------------------------------------------------------------- #
