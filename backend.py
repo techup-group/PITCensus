@@ -37,6 +37,9 @@ def submit_form():
 	# create first part of sqlite execute string
 	insert_str = "INSERT INTO entries VALUES ("
 
+	print "\nUNSORTED form data: " + str(unsorted_list)
+	print "\nSORTED form data: " + str(sorted(unsorted_list))
+
 	# populate string with data from page forms
 	for field in sorted(unsorted_list):
 		insert_str += '"' + str(field[1]) + '",'
@@ -44,13 +47,14 @@ def submit_form():
 	# replace last , with ) to close statement
 	insert_str = insert_str[:-1] + ')'
 
+	print "\nsqlite INSERT string: " + insert_str + "\n"
+
 	# UNCOMMENT
 	# execute insert string
 	# c.execute(insert_str)
 	
 	# save and exit database connection
 	conn.commit()
-	conn.close()
 
 	return redirect('/')
 
@@ -59,4 +63,5 @@ def submit_form():
 if __name__ == '__main__':
     app.debug = True
     app.run(debug=True, host='0.0.0.0', port=5000)
+    conn.close()
 
