@@ -1,0 +1,9 @@
+[
+	{ 
+	type: "visible", 
+	name: "where_stay_last", 
+	operator: "greater", 
+	value: ["psychiatric","substanceAbuse","hospital","jail"], 
+	questions: ["how_long_stay"] 
+	}
+]

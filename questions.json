@@ -73,6 +73,22 @@
                title:"Where did you stay last night?"
             },
             {
+               type:"radiogroup",
+               name:"how_long_stay",
+               title:"How long were you in the facility/jail/hospital?",
+               visible: false,
+               choices:[
+                  {
+                     value:"yes",
+                     text:"yes"
+                  },
+                  {
+                     value:"no",
+                     text:"no"
+                  }
+               ]
+            }
+            {
                type:"text",
                name:"first_name",
                title:"Please tell me your first name:"
