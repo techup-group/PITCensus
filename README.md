@@ -12,6 +12,7 @@ Point in time count
 ##Running
 ```python
 pip install flask
+npm install survey-knockout-bootstrap
 python backend.py
 ```
 

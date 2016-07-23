@@ -5,5 +5,14 @@
 	operator: "equal", 
 	value: ["psychiatric","substanceAbuse","hospital","jail"], 
 	questions: ["how_long_stay"] 
+	},
+	{ 
+	type: "visible", 
+	name: "how_long_stay", 
+	operator: "equal", 
+	value: "less90", 
+	questions: ["before90"] 
 	}
 ]
+
+
