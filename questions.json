@@ -80,6 +80,62 @@
          name:"generalquestions",
          questions:[
             {
+               type:"radiogroup",
+               name:"how_long_stay",
+               title:"How long were you in the facility/jail/hospital?",
+               visible: false,
+               choices:[
+                  {
+                     value:"more90",
+                     text:"More than 90 days."
+                  },
+                  {
+                     value:"less90",
+                     text:"Less than 90 days"
+                  }
+               ]
+            },
+            {
+               type:"radiogroup",
+               name:"before90",
+               title:"Where did you stay right before entering the facility/jail/hospital?",
+               visible: false,
+               choices:[
+                  {
+                     value:"notFit",
+                     text:"Place not meant for habitation (car, street, abandoned building, etc.)"
+                  },
+                  {
+                     value:"hotel",
+                     text:"Hotel/Motel paname for by an agency or organization"
+                  },
+                  {
+                     value:"psychiatric",
+                     text:"Psychiatric facility"
+                  },
+                  {
+                     value:"substanceAbuse",
+                     text:"Substance abuse treatment facility"
+                  },
+                  {
+                     value:"hospital",
+                     text:"Hospital"
+                  },
+                  {
+                     value:"jail",
+                     text:"Jail, prison, detention facility"
+                  },
+                  {
+                     value:"transitionalHousing",
+                     text:"Transitional Housing"
+                  },
+                  {
+                     value:"emergencyShelter",
+                     text:"Emergency shelter"
+                  }
+               ]
+            },
+            {
                type:"text",
                name:"first_name",
                title:"Please tell me your first name:"
