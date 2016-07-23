@@ -2,7 +2,7 @@
 	{ 
 	type: "visible", 
 	name: "where_stay_last", 
-	operator: "greater", 
+	operator: "equal", 
 	value: ["psychiatric","substanceAbuse","hospital","jail"], 
 	questions: ["how_long_stay"] 
 	}
