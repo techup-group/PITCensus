@@ -18,6 +18,20 @@ index_general_inputs = [
 		"id": "qualification_questions",
 		"questions": [
 			{
+				"label": "Was this survey completed on observation?",
+				"type": "radio",
+				"id": "was_observation",
+				"inputs": [
+					{ 
+						"type": "radio_group",
+					  	"inputs": [	
+							{"label":"Yes"},
+							{"label":"No"}
+					  	]
+					}
+				]		
+			},			
+			{
 				"label": "Have you completed this survey earlier today?",
 				"type": "radio",
 				"id": "completed_survey",
@@ -30,7 +44,7 @@ index_general_inputs = [
 					  	]
 					}
 				]		
-			},
+			},			
 			{
 				"label": "Are you currently homeless?",
 				"type": "radio",
@@ -71,7 +85,7 @@ index_general_inputs = [
 		"glyphicon": "glyphicon-info-sign",
 		"id": "general_questions",
 		"questions": [
-			{
+			{		
 				"label":"Please tell me your first name:", 
 				"type":"text",
 				"id":"first_name",
