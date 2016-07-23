@@ -123,32 +123,17 @@
             {
                type:"radiogroup",
                choices:[
-                  {
-                     pos:{
-                        start:2051,
-                        end:2179
-                     },
-                     type:"radiogroup_group",
-                     choices:[
                         {
-                           pos:{
-                              start:2118,
-                              end:2144
-                           },
                            value:"yes",
                            text:"yes"
                         },
-                        {
-                           pos:{
-                              start:2146,
-                              end:2170
-                           },
+                        {                       
                            value:"no",
                            text:"no"
                         }
-                     ]
-                  }
-               ],
+                     ],
+                  
+
                name:"hispanic",
                title:"Are you Hispanic or Latino?"
             },
