@@ -12,6 +12,13 @@
 	operator: "equal", 
 	value: "less90", 
 	questions: ["before90"] 
+	},
+	{ 
+	type: "visible", 
+	name: "veteran_status", 
+	operator: "equal", 
+	value: "yes", 
+	questions: ["military_branch","military_enter_date","military_exit_date","discharge_type"] 
 	}
 ]
 
