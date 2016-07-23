@@ -299,53 +299,43 @@
 				"name":"felony_status",
 				"type": "radiogroup",
 				"choices": [
-					{ 
-						"type": "radiogroup_group",
-					  	"choices": [
-							{"title":"Yes"},
-							{"title":"No"}
-					  	]
-					}
-				]
-			},			
-			{
-				"title": "Do you receive any income?",
-				"name":"income_type",
-				"choices": [
-					{ 
-						"type": "radiogroup_group",
-					  	"choices": [
-							{"title":"Yes  (If yes, check all sources that apply)", "type":"radiogroup"},
-							{"title":"No Income", "type":"radiogroup"},
-						
-					  	]
-					},
-					{"title":"Earned income", "type":"checkbox"},
-					{"title":"Alimony", "type":"checkbox"},
-					{"title":"SSA retirement", "type":"checkbox"},
-					{"title":"VA Disability Pension (NON-service connected)", "type":"checkbox"},
-					{"title":"SSI", "type":"checkbox"},
-					{"title":"Workers' Comp", "type":"checkbox"},
-					{"title":"Pension/Retirement Income", "type":"checkbox"},
-					{"title":"TANF", "type":"checkbox"},
-					{"title":"VA Disability Comp (Service Connected)", "type":"checkbox"},
-					{"title":"SSDI", "type":"checkbox"},
-					{"title":"Private disability insurance", "type":"checkbox"},
-					{"title":"Unemployment", "type":"checkbox"},
-					{"title":"Child support", "type":"checkbox"},
-					{"title":"SSDI", "type":"checkbox"},
-					{"title":"Amount $ /month (Gross)", "type":text},
-					{"title":"Other source", "type":text}
-				]			    
+					"Yes",
+					"No"
+			  	]
 			},
 			{
+			   type:"checkbox",
+			   title:"Do you receive any income?",
+			   "name":"income_type",
+			   choices: [
+				  "Yes  (If yes)",
+				  "No Income",
+				  "Earned income",
+				  "Alimony",
+				  "SSA retirement",
+				  "VA Disability Pension (NON-service connected)",
+				  "SSI",
+				  "Workers' Comp",
+				  "Pension/Retirement Income",
+				  "TANF",
+				  "VA Disability Comp (Service Connected)",
+				  "SSDI",
+				  "Private disability insurance",
+				  "Unemployment",
+				  "Child support",
+				  "SSDI",
+				  "Amount $ /month (Gross)",
+				  "Other source"
+			   ]
+			},		
+			{
 				"title": "How many other Adult family members are homeless with you now?",
-				"type": text,
+				"type": "text",
 				"name":"homeless_adults",
 			},
 			{
 				"title": "How many other Children family members are homeless with you now?",
-				"type": text,
+				"type": "text",
 				"name":"homeless_children",
 			}		
 		]
