@@ -1,280 +1,528 @@
-"questions": [
-			{
-				"title": "Have you completed this survey earlier today?",
-				"type": "radiogroup",
-				"name": "completed_survey",
-				"choices": [ {value: "yes", text: "yes"},{value: "no", text: "no"}]		
-			},
-			{
-				"title": "Are you currently homeless?",
-				"type": "radiogroup",
-				"name": "currently_homeless",
-				"choices": [ {value: "yes", text: "yes"},{value: "no", text: "no"}]		
-			},
-			{
-				"title": "Where did you stay last night?",
-				"name": "where_stay_last",
-				"type": "radiogroup",						
-				"choices": [
-							{value: "notFit", text:"Place not meant for habitation (car, street, abandoned building, etc.)"},
-							{value:"hotel",text:"Hotel/Motel paname for by an agency or organization"},
-							{value:"psychiatric",text:"Psychiatric facility"},
-							{value:"substanceAbuse",text:"Substance abuse treatment facility"},
-							{value:"hospital",text:"Hospital"},
-							{value:"jail",text:"Jail, prison, detention facility"},
-							{value:"transitionalHousing",text:"Transitional Housing"},
-							{value:"emergencyShelter",text:"Emergency shelter"}
-						]				
-			}			
-			{
-				"title":"Please tell me your first name:", 
-				"type":text,
-				"name":"first_name",
-			},
-			{
-				"title":"Please tell me the first 3 letters of your last name:",
-				"name":"last_name",
-				"type":text
-			},
-			{ 	"title":"Last 4 of your SSN:", 
-				"name":"ssn",
-				"type":text 
-			},
-			{
-				"title":"What is your date of birth?",
-				"type":text,
-				"name":"dob"    
-			},
-			{
-				"title":"What is your age?",
-				"type":text,
-				"name":"age"		    
-			},			
-			{
-				"title":"Are you:",
-				"type":"radiogroup",
-				"name":"gender",
-				"choices": 
-			[					 
-							{value:"male",text:"Male"},
-							{value:"female",text:"Female"},
-							{value:"mtf",text:"Transgender M to F"},
-							{value:"ftm",text:"Transgender F to M"}				 					
-			]		    
-			},
-			{
-				"title":"Are you Hispanic or Latino?",
-				"type":"radiogroup",
-				"name":"hispanic",
-				"choices": [
-					{ 
-						"type": "radiogroup_group",
-					  	"choices": 
-					  	[ {value: "yes", text: "yes"},{value: "no", text: "no"} ]
-					}
-				]		    
-			},
-			{
-				"title": "What is your race?",
-				"name":"race",
-				"type": "checkbox",
-				"choices": [
-					{"value":"americanIndian","text":"American Indian/Alaskan Native"},
-					{"value":"asian","text":"Asian"},
-					{"value":"black","text":"Black/African American"},
-					{"value":"native","text":"Native Hawaiian/Other Pacific Islander"},
-					{"value":"white","text":"White"},
-					{"value":"other","text":"Other"}
-			  	]
-			},
-			{
-				"title": "How long have you been in this episode of homelessness?",
-				"type": "radiogroup",
-				"name":"homelessness_duration",
-				"choices": [
-							{"value":"oneWeek","text":"1 week or less"},
-							{"value":"weekToMonth","text":"more than 1 week, but less than 1 month"},
-							{"value":"oneToThreeMonths","text":"1 - 3 months"},
-							{"value":"threeMonthsToYear","text":"more than 3 months, but less than 1 year"},
-							{"value":"yearOrMore","text":"1 year or longer"}
-						]
-			},
-			{
-				"title": "How many times have you been on the streets, Emergency Shelter, or Safe Haven in the past three years including today?",
-				"name":"shelter_frequency",
-				"type": "radiogroup",
-				"choices": [
-			  		        {"value":"never","text":"Never in the 3 years"},
-							{"value":"one","text":"One Time"},
-							{"value":"two","text":"Two Times"},
-							{"value":"three","text":"Three Times"},        
-							{"value":"fourOrMore","text":"Four or More Times"}
-						]
-	   		},
-			{
-				"title": "Total number of months you have been homeless on the street, Emergency Shelter, or Safe Haven in the past three years?",
-				"type": "text",
-				"name":"shelter_months",
-			},
-			{
-				"title": "How long have you been staying in Hillsborough County?",
-				"type": "radiogroup",
-				"name":"county_duration",
-				"choices": [
-							{"value":"oneWeekOrLess","text":"1 week or less"},
-							{"value":"weekToMonth","text":"More than 1 week, but less than 1 month"},
-							{"value":"oneToThreeMonths","text":"1 to 3 months"},
-							{"value":"moreThanThreeMonthsLessThanYear","text":"More than 3 months, but less than 1 year"},
-							{"value":"yearOrMore","text":"1 year or longer"}
-					  	]			
-			},
-			{
-				"title": "What is the primary cause of your homelessness?",
-				"name":"homelessness_cause",
-				"type": "radiogroup",
-				"choices": [
-							{"value":"finance","text":"Employment/financial reasons"},
-							{"value":"family","text":"Family problems"},
-							{"value":"immigration","text":"Recent immigration"},
-							{"value":"housing","text":"Housing issues"},
-							{"value":"disaster","text":"Natural/other disasters"},
-							{"value":"medical","text":"Medical/disability problems"},
-							{"value":"other","text":"Other"}
-						]
-			},
-			{
-				"title": "Were you ever in foster care as a child?",
-				"name":"foster_status",
-				"type": "radiogroup",
-				"choices": [
-				{value: "yes", text: "yes"},{value: "no", text: "no"}
-				]		    
-			},
-			{
-				"title": "Do you have a disabling condition?",
-				"type": "radiogroup",
-				"name":"disability_status",
-				"choices": [
-							{value: "yes", text: "yes"},{value: "no", text: "no"}
-					  	]
-			},
-			{
-				"title": "What type of disabling condition do you have (you may select more than one condition)?",
-				"type": "checkbox",
-				"name":"disability_type",
-				"choices": [
-					{value: "physical","text":"Physical"},
-					{value: "developmental","text":"Developmental"},
-					{value: "mental","text":"Mental health"},
-					{value: "alcohol","text":"Alcohol Abuse"},
-					{value: "drug","text":"Drug Abuse"},
-					{value: "hiv","text":"HIV/AnameS"}
-				]		    
-			},
-			{
-				"title": "Have you ever served on Active Duty in the US Military? (If \"No\", skip next question)",
-				"type": "radiogroup",
-				"name":"veteran_status",
-				"choices": [
-							{value: "yes", text: "yes"},{value: "no", text: "no"}
-					  	]				    
-			},
-			{
-				"title": "What Branch of the Military do you serve?",
-				"type": "radiogroup",
-				"name":"military_branch",
-				"choices": [
-	
-							{value: "army","text":"Army"},
-							{value: "airForce","text":"Air Force"},
-							{value: "navy","text":"Navy"},
-							{value: "marines","text":"Marines"},
-							{value: "coastGuard","text":"Coast Guard"}
-					  	]		    
-			},
-	
-			{
-				"title": "What date did you enter the service? (Month/Year)",
-				"type": text,
-				"name":"military_enter_date",
-			},
-		
-			{
-			"title": "What date did you exit the service? (Month/Year)",
-				"type": text,
-				"name":"military_exit_date",
-			},
-			{
-				"title": "What type of discharge did you receive?",
-				"name":"discharge_type",
-				"type": "radiogroup",
-				"choices": [
-							{value: "honorable","text":"Honorable"},
-							{value: "dishonorable","text":"Dishonorable"},
-							{value: "general","text":"General"},
-							{value: "otherThanHonorable","text":"Other than honorable"},
-							{value: "badConduct","text":"Bad conduct"},
-							{value: "other","text":"Other"}							
-					  	]
-			},
-			{
-				"title": "Are you covered by Health Insurance?",
-				"name":"health_insurance_status",
-				"type": "radiogroup",
-				"choices": [
-							{value: "yes", text: "yes"},{value: "no", text: "no"}
-					  	]
-			},	
-			{
-				"title": "Are you a domestic violence victim/survivor?",
-				"name":"domestic_violence_status",
-				"type": "radiogroup",
-				"choices": [
-							{value: "yes", text: "yes"},{value: "no", text: "no"}
-					  	]
-			},			
-			{
-				"title": "Have you ever been charged with a felony?",
-				"name":"felony_status",
-				"type": "radiogroup",
-				"choices": [
-					"Yes",
-					"No"
-			  	]
-			},
-			{
-			   type:"checkbox",
-			   title:"Do you receive any income?",
-			   "name":"income_type",
-			   choices: [
-				  "Yes  (If yes)",
-				  "No Income",
-				  "Earned income",
-				  "Alimony",
-				  "SSA retirement",
-				  "VA Disability Pension (NON-service connected)",
-				  "SSI",
-				  "Workers' Comp",
-				  "Pension/Retirement Income",
-				  "TANF",
-				  "VA Disability Comp (Service Connected)",
-				  "SSDI",
-				  "Private disability insurance",
-				  "Unemployment",
-				  "Child support",
-				  "SSDI",
-				  "Amount $ /month (Gross)",
-				  "Other source"
-			   ]
-			},		
-			{
-				"title": "How many other Adult family members are homeless with you now?",
-				"type": "text",
-				"name":"homeless_adults",
-			},
-			{
-				"title": "How many other Children family members are homeless with you now?",
-				"type": "text",
-				"name":"homeless_children",
-			}		
-		]
+{
+   pages:[
+      {
+         name:"page1",
+         questions:[
+            {
+               type:"radiogroup",
+               choices:[
+                  {
+                     value:"yes",
+                     text:"yes"
+                  },
+                  {
+                     value:"no",
+                     text:"no"
+                  }
+               ],
+               name:"completed_survey",
+               title:"Have you completed this survey earlier today?"
+            },
+            {
+               type:"radiogroup",
+               choices:[
+                  {
+                     value:"yes",
+                     text:"yes"
+                  },
+                  {
+                     value:"no",
+                     text:"no"
+                  }
+               ],
+               name:"currently_homeless",
+               title:"Are you currently homeless?"
+            },
+            {
+               type:"radiogroup",
+               choices:[
+                  {
+                     value:"notFit",
+                     text:"Place not meant for habitation (car, street, abandoned building, etc.)"
+                  },
+                  {
+                     value:"hotel",
+                     text:"Hotel/Motel paname for by an agency or organization"
+                  },
+                  {
+                     value:"psychiatric",
+                     text:"Psychiatric facility"
+                  },
+                  {
+                     value:"substanceAbuse",
+                     text:"Substance abuse treatment facility"
+                  },
+                  {
+                     value:"hospital",
+                     text:"Hospital"
+                  },
+                  {
+                     value:"jail",
+                     text:"Jail, prison, detention facility"
+                  },
+                  {
+                     value:"transitionalHousing",
+                     text:"Transitional Housing"
+                  },
+                  {
+                     value:"emergencyShelter",
+                     text:"Emergency shelter"
+                  }
+               ],
+               name:"where_stay_last",
+               title:"Where did you stay last night?"
+            },
+            {
+               type:"text",
+               name:"first_name",
+               title:"Please tell me your first name:"
+            },
+            {
+               type:"text",
+               name:"last_name",
+               title:"Please tell me the first 3 letters of your last name:"
+            },
+            {
+               type:"text",
+               name:"ssn",
+               title:"Last 4 of your SSN:"
+            },
+            {
+               type:"text",
+               name:"dob",
+               title:"What is your date of birth?"
+            },
+            {
+               type:"text",
+               name:"age",
+               title:"What is your age?"
+            },
+            {
+               type:"radiogroup",
+               choices:[
+                  {
+                     value:"male",
+                     text:"Male"
+                  },
+                  {
+                     value:"female",
+                     text:"Female"
+                  },
+                  {
+                     value:"mtf",
+                     text:"Transgender M to F"
+                  },
+                  {
+                     value:"ftm",
+                     text:"Transgender F to M"
+                  }
+               ],
+               name:"gender",
+               title:"Are you:"
+            },
+            {
+               type:"radiogroup",
+               choices:[
+                  {
+                     pos:{
+                        start:2051,
+                        end:2179
+                     },
+                     type:"radiogroup_group",
+                     choices:[
+                        {
+                           pos:{
+                              start:2118,
+                              end:2144
+                           },
+                           value:"yes",
+                           text:"yes"
+                        },
+                        {
+                           pos:{
+                              start:2146,
+                              end:2170
+                           },
+                           value:"no",
+                           text:"no"
+                        }
+                     ]
+                  }
+               ],
+               name:"hispanic",
+               title:"Are you Hispanic or Latino?"
+            },
+            {
+               type:"checkbox",
+               choices:[
+                  {
+                     value:"americanIndian",
+                     text:"American Indian/Alaskan Native"
+                  },
+                  {
+                     value:"asian",
+                     text:"Asian"
+                  },
+                  {
+                     value:"black",
+                     text:"Black/African American"
+                  },
+                  {
+                     value:"native",
+                     text:"Native Hawaiian/Other Pacific Islander"
+                  },
+                  {
+                     value:"white",
+                     text:"White"
+                  },
+                  {
+                     value:"other",
+                     text:"Other"
+                  }
+               ],
+               name:"race",
+               title:"What is your race?"
+            },
+            {
+               type:"radiogroup",
+               choices:[
+                  {
+                     value:"oneWeek",
+                     text:"1 week or less"
+                  },
+                  {
+                     value:"weekToMonth",
+                     text:"more than 1 week, but less than 1 month"
+                  },
+                  {
+                     value:"oneToThreeMonths",
+                     text:"1 - 3 months"
+                  },
+                  {
+                     value:"threeMonthsToYear",
+                     text:"more than 3 months, but less than 1 year"
+                  },
+                  {
+                     value:"yearOrMore",
+                     text:"1 year or longer"
+                  }
+               ],
+               name:"homelessness_duration",
+               title:"How long have you been in this episode of homelessness?"
+            },
+            {
+               type:"radiogroup",
+               choices:[
+                  {
+                     value:"never",
+                     text:"Never in the 3 years"
+                  },
+                  {
+                     value:"one",
+                     text:"One Time"
+                  },
+                  {
+                     value:"two",
+                     text:"Two Times"
+                  },
+                  {
+                     value:"three",
+                     text:"Three Times"
+                  },
+                  {
+                     value:"fourOrMore",
+                     text:"Four or More Times"
+                  }
+               ],
+               name:"shelter_frequency",
+               title:"How many times have you been on the streets, Emergency Shelter, or Safe Haven in the past three years including today?"
+            },
+            {
+               type:"text",
+               name:"shelter_months",
+               title:"Total number of months you have been homeless on the street, Emergency Shelter, or Safe Haven in the past three years?"
+            },
+            {
+               type:"radiogroup",
+               choices:[
+                  {
+                     value:"oneWeekOrLess",
+                     text:"1 week or less"
+                  },
+                  {
+                     value:"weekToMonth",
+                     text:"More than 1 week, but less than 1 month"
+                  },
+                  {
+                     value:"oneToThreeMonths",
+                     text:"1 to 3 months"
+                  },
+                  {
+                     value:"moreThanThreeMonthsLessThanYear",
+                     text:"More than 3 months, but less than 1 year"
+                  },
+                  {
+                     value:"yearOrMore",
+                     text:"1 year or longer"
+                  }
+               ],
+               name:"county_duration",
+               title:"How long have you been staying in Hillsborough County?"
+            },
+            {
+               type:"radiogroup",
+               choices:[
+                  {
+                     value:"finance",
+                     text:"Employment/financial reasons"
+                  },
+                  {
+                     value:"family",
+                     text:"Family problems"
+                  },
+                  {
+                     value:"immigration",
+                     text:"Recent immigration"
+                  },
+                  {
+                     value:"housing",
+                     text:"Housing issues"
+                  },
+                  {
+                     value:"disaster",
+                     text:"Natural/other disasters"
+                  },
+                  {
+                     value:"medical",
+                     text:"Medical/disability problems"
+                  },
+                  {
+                     value:"other",
+                     text:"Other"
+                  }
+               ],
+               name:"homelessness_cause",
+               title:"What is the primary cause of your homelessness?"
+            },
+            {
+               type:"radiogroup",
+               choices:[
+                  {
+                     value:"yes",
+                     text:"yes"
+                  },
+                  {
+                     value:"no",
+                     text:"no"
+                  }
+               ],
+               name:"foster_status",
+               title:"Were you ever in foster care as a child?"
+            },
+            {
+               type:"radiogroup",
+               choices:[
+                  {
+                     value:"yes",
+                     text:"yes"
+                  },
+                  {
+                     value:"no",
+                     text:"no"
+                  }
+               ],
+               name:"disability_status",
+               title:"Do you have a disabling condition?"
+            },
+            {
+               type:"checkbox",
+               choices:[
+                  {
+                     value:"physical",
+                     text:"Physical"
+                  },
+                  {
+                     value:"developmental",
+                     text:"Developmental"
+                  },
+                  {
+                     value:"mental",
+                     text:"Mental health"
+                  },
+                  {
+                     value:"alcohol",
+                     text:"Alcohol Abuse"
+                  },
+                  {
+                     value:"drug",
+                     text:"Drug Abuse"
+                  },
+                  {
+                     value:"hiv",
+                     text:"HIV/AnameS"
+                  }
+               ],
+               name:"disability_type",
+               title:"What type of disabling condition do you have (you may select more than one condition)?"
+            },
+            {
+               type:"radiogroup",
+               choices:[
+                  {
+                     value:"yes",
+                     text:"yes"
+                  },
+                  {
+                     value:"no",
+                     text:"no"
+                  }
+               ],
+               name:"veteran_status",
+               title:"Have you ever served on Active Duty in the US Military? (If \"No\", skip next question)"
+            },
+            {
+               type:"radiogroup",
+               choices:[
+                  {
+                     value:"army",
+                     text:"Army"
+                  },
+                  {
+                     value:"airForce",
+                     text:"Air Force"
+                  },
+                  {
+                     value:"navy",
+                     text:"Navy"
+                  },
+                  {
+                     value:"marines",
+                     text:"Marines"
+                  },
+                  {
+                     value:"coastGuard",
+                     text:"Coast Guard"
+                  }
+               ],
+               name:"military_branch",
+               title:"What Branch of the Military do you serve?"
+            },
+            {
+               type:"text",
+               name:"military_enter_date",
+               title:"What date did you enter the service? (Month/Year)"
+            },
+            {
+               type:"text",
+               name:"military_exit_date",
+               title:"What date did you exit the service? (Month/Year)"
+            },
+            {
+               type:"radiogroup",
+               choices:[
+                  {
+                     value:"honorable",
+                     text:"Honorable"
+                  },
+                  {
+                     value:"dishonorable",
+                     text:"Dishonorable"
+                  },
+                  {
+                     value:"general",
+                     text:"General"
+                  },
+                  {
+                     value:"otherThanHonorable",
+                     text:"Other than honorable"
+                  },
+                  {
+                     value:"badConduct",
+                     text:"Bad conduct"
+                  },
+                  {
+                     value:"other",
+                     text:"Other"
+                  }
+               ],
+               name:"discharge_type",
+               title:"What type of discharge did you receive?"
+            },
+            {
+               type:"radiogroup",
+               choices:[
+                  {
+                     value:"yes",
+                     text:"yes"
+                  },
+                  {
+                     value:"no",
+                     text:"no"
+                  }
+               ],
+               name:"health_insurance_status",
+               title:"Are you covered by Health Insurance?"
+            },
+            {
+               type:"radiogroup",
+               choices:[
+                  {
+                     value:"yes",
+                     text:"yes"
+                  },
+                  {
+                     value:"no",
+                     text:"no"
+                  }
+               ],
+               name:"domestic_violence_status",
+               title:"Are you a domestic violence victim/survivor?"
+            },
+            {
+               type:"radiogroup",
+               choices:[
+                  "Yes",
+                  "No"
+               ],
+               name:"felony_status",
+               title:"Have you ever been charged with a felony?"
+            },
+            {
+               type:"checkbox",
+               choices:[
+                  "Yes  (If yes)",
+                  "No Income",
+                  "Earned income",
+                  "Alimony",
+                  "SSA retirement",
+                  "VA Disability Pension (NON-service connected)",
+                  "SSI",
+                  "Workers' Comp",
+                  "Pension/Retirement Income",
+                  "TANF",
+                  "VA Disability Comp (Service Connected)",
+                  "SSDI",
+                  "Private disability insurance",
+                  "Unemployment",
+                  "Child support",
+                  "SSDI",
+                  "Amount $ /month (Gross)",
+                  "Other source"
+               ],
+               name:"income_type",
+               title:"Do you receive any income?"
+            },
+            {
+               type:"text",
+               name:"homeless_adults",
+               title:"How many other Adult family members are homeless with you now?"
+            },
+            {
+               type:"text",
+               name:"homeless_children",
+               title:"How many other Children family members are homeless with you now?"
+            }
+         ]
+      }
+   ]
+}
