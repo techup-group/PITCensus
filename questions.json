@@ -1,40 +1,44 @@
 {
    pages:[
       {
-         name:"page1",
+         name:"observation",
          questions:[
             {
                type:"radiogroup",
+               name:"on_observation",
+               title:"(Volunteer quesion) Is this survey completed on observation?",
                choices:[
-                  {
-                     value:"yes",
-                     text:"yes"
-                  },
-                  {
-                     value:"no",
-                     text:"no"
-                  }
-               ],
+                  "yes",
+                  "no"
+               ]
+            }
+         ]
+      },
+      {
+         name:"qualification",
+         questions:[
+            {
+               type:"radiogroup",
                name:"completed_survey",
-               title:"Have you completed this survey earlier today?"
-            },
-            {
-               type:"radiogroup",
+               title:"Have you completed this survey earlier today?",
                choices:[
-                  {
-                     value:"yes",
-                     text:"yes"
-                  },
-                  {
-                     value:"no",
-                     text:"no"
-                  }
-               ],
-               name:"currently_homeless",
-               title:"Are you currently homeless?"
+                  "yes",
+                  "no"
+               ]
             },
             {
                type:"radiogroup",
+               name:"currently_homeless",
+               title:"Are you currently homeless?",
+               choices:[
+                  "yes",
+                  "no"
+               ]
+            },
+            {
+               type:"radiogroup",
+               name:"where_stay_last",
+               title:"Where did you stay last night?",
                choices:[
                   {
                      value:"notFit",
@@ -68,10 +72,13 @@
                      value:"emergencyShelter",
                      text:"Emergency shelter"
                   }
-               ],
-               name:"where_stay_last",
-               title:"Where did you stay last night?"
-            },
+               ]
+            }
+         ]
+      },
+      {
+         name:"generalquestions",
+         questions:[
             {
                type:"text",
                name:"first_name",
@@ -99,6 +106,8 @@
             },
             {
                type:"radiogroup",
+               name:"gender",
+               title:"Are you:",
                choices:[
                   {
                      value:"male",
@@ -116,29 +125,27 @@
                      value:"ftm",
                      text:"Transgender F to M"
                   }
-               ],
-               name:"gender",
-               title:"Are you:"
+               ]
             },
             {
                type:"radiogroup",
-               choices:[
-                        {
-                           value:"yes",
-                           text:"yes"
-                        },
-                        {                       
-                           value:"no",
-                           text:"no"
-                        }
-                     ],
-                  
-
                name:"hispanic",
-               title:"Are you Hispanic or Latino?"
+               title:"Are you Hispanic or Latino?",
+               choices:[
+                  {
+                     value:"yes",
+                     text:"yes"
+                  },
+                  {
+                     value:"no",
+                     text:"no"
+                  }
+               ]
             },
             {
                type:"checkbox",
+               name:"race",
+               title:"What is your race?",
                choices:[
                   {
                      value:"americanIndian",
@@ -164,12 +171,12 @@
                      value:"other",
                      text:"Other"
                   }
-               ],
-               name:"race",
-               title:"What is your race?"
+               ]
             },
             {
                type:"radiogroup",
+               name:"homelessness_duration",
+               title:"How long have you been in this episode of homelessness?",
                choices:[
                   {
                      value:"oneWeek",
@@ -191,12 +198,12 @@
                      value:"yearOrMore",
                      text:"1 year or longer"
                   }
-               ],
-               name:"homelessness_duration",
-               title:"How long have you been in this episode of homelessness?"
+               ]
             },
             {
                type:"radiogroup",
+               name:"shelter_frequency",
+               title:"How many times have you been on the streets, Emergency Shelter, or Safe Haven in the past three years including today?",
                choices:[
                   {
                      value:"never",
@@ -218,9 +225,7 @@
                      value:"fourOrMore",
                      text:"Four or More Times"
                   }
-               ],
-               name:"shelter_frequency",
-               title:"How many times have you been on the streets, Emergency Shelter, or Safe Haven in the past three years including today?"
+               ]
             },
             {
                type:"text",
@@ -229,6 +234,8 @@
             },
             {
                type:"radiogroup",
+               name:"county_duration",
+               title:"How long have you been staying in Hillsborough County?",
                choices:[
                   {
                      value:"oneWeekOrLess",
@@ -250,12 +257,12 @@
                      value:"yearOrMore",
                      text:"1 year or longer"
                   }
-               ],
-               name:"county_duration",
-               title:"How long have you been staying in Hillsborough County?"
+               ]
             },
             {
                type:"radiogroup",
+               name:"homelessness_cause",
+               title:"What is the primary cause of your homelessness?",
                choices:[
                   {
                      value:"finance",
@@ -285,27 +292,12 @@
                      value:"other",
                      text:"Other"
                   }
-               ],
-               name:"homelessness_cause",
-               title:"What is the primary cause of your homelessness?"
+               ]
             },
             {
                type:"radiogroup",
-               choices:[
-                  {
-                     value:"yes",
-                     text:"yes"
-                  },
-                  {
-                     value:"no",
-                     text:"no"
-                  }
-               ],
                name:"foster_status",
-               title:"Were you ever in foster care as a child?"
-            },
-            {
-               type:"radiogroup",
+               title:"Were you ever in foster care as a child?",
                choices:[
                   {
                      value:"yes",
@@ -315,12 +307,27 @@
                      value:"no",
                      text:"no"
                   }
-               ],
+               ]
+            },
+            {
+               type:"radiogroup",
                name:"disability_status",
-               title:"Do you have a disabling condition?"
+               title:"Do you have a disabling condition?",
+               choices:[
+                  {
+                     value:"yes",
+                     text:"yes"
+                  },
+                  {
+                     value:"no",
+                     text:"no"
+                  }
+               ]
             },
             {
                type:"checkbox",
+               name:"disability_type",
+               title:"What type of disabling condition do you have (you may select more than one condition)?",
                choices:[
                   {
                      value:"physical",
@@ -346,12 +353,12 @@
                      value:"hiv",
                      text:"HIV/AnameS"
                   }
-               ],
-               name:"disability_type",
-               title:"What type of disabling condition do you have (you may select more than one condition)?"
+               ]
             },
             {
                type:"radiogroup",
+               name:"veteran_status",
+               title:"Have you ever served on Active Duty in the US Military? (If \"No\", skip next question)",
                choices:[
                   {
                      value:"yes",
@@ -361,12 +368,12 @@
                      value:"no",
                      text:"no"
                   }
-               ],
-               name:"veteran_status",
-               title:"Have you ever served on Active Duty in the US Military? (If \"No\", skip next question)"
+               ]
             },
             {
                type:"radiogroup",
+               name:"military_branch",
+               title:"What Branch of the Military do you serve?",
                choices:[
                   {
                      value:"army",
@@ -388,9 +395,7 @@
                      value:"coastGuard",
                      text:"Coast Guard"
                   }
-               ],
-               name:"military_branch",
-               title:"What Branch of the Military do you serve?"
+               ]
             },
             {
                type:"text",
@@ -404,6 +409,8 @@
             },
             {
                type:"radiogroup",
+               name:"discharge_type",
+               title:"What type of discharge did you receive?",
                choices:[
                   {
                      value:"honorable",
@@ -429,27 +436,12 @@
                      value:"other",
                      text:"Other"
                   }
-               ],
-               name:"discharge_type",
-               title:"What type of discharge did you receive?"
+               ]
             },
             {
                type:"radiogroup",
-               choices:[
-                  {
-                     value:"yes",
-                     text:"yes"
-                  },
-                  {
-                     value:"no",
-                     text:"no"
-                  }
-               ],
                name:"health_insurance_status",
-               title:"Are you covered by Health Insurance?"
-            },
-            {
-               type:"radiogroup",
+               title:"Are you covered by Health Insurance?",
                choices:[
                   {
                      value:"yes",
@@ -459,21 +451,36 @@
                      value:"no",
                      text:"no"
                   }
-               ],
-               name:"domestic_violence_status",
-               title:"Are you a domestic violence victim/survivor?"
+               ]
             },
             {
                type:"radiogroup",
+               name:"domestic_violence_status",
+               title:"Are you a domestic violence victim/survivor?",
+               choices:[
+                  {
+                     value:"yes",
+                     text:"yes"
+                  },
+                  {
+                     value:"no",
+                     text:"no"
+                  }
+               ]
+            },
+            {
+               type:"radiogroup",
+               name:"felony_status",
+               title:"Have you ever been charged with a felony?",
                choices:[
                   "Yes",
                   "No"
-               ],
-               name:"felony_status",
-               title:"Have you ever been charged with a felony?"
+               ]
             },
             {
                type:"checkbox",
+               name:"income_type",
+               title:"Do you receive any income?",
                choices:[
                   "Yes  (If yes)",
                   "No Income",
@@ -493,9 +500,7 @@
                   "SSDI",
                   "Amount $ /month (Gross)",
                   "Other source"
-               ],
-               name:"income_type",
-               title:"Do you receive any income?"
+               ]
             },
             {
                type:"text",
