@@ -488,16 +488,15 @@ var surveyData = {
                   "Alimony",
                   "SSA retirement",
                   "VA Disability Pension (NON-service connected)",
+                  "VA Disability Comp (Service Connected)",
                   "SSI",
                   "Workers' Comp",
                   "Pension/Retirement Income",
                   "TANF",
-                  "VA Disability Comp (Service Connected)",
                   "SSDI",
                   "Private disability insurance",
                   "Unemployment",
                   "Child support",
-                  "SSDI",
                   "Amount $ /month (Gross)",
                   "Other source"
                ]
