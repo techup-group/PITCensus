@@ -520,7 +520,12 @@ var surveyData = {
             	type:"text",
             	name:"deployment_site",
             	title:"Deployment Site:"
-            }
+            },
+            {
+     			type: "comment",
+     			name: "notes",
+     			title:"NOTES:"
+    		}
          ]
       }
    ]
