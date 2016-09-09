@@ -510,6 +510,16 @@ var surveyData = {
                type:"text",
                name:"homeless_children",
                title:"How many other Children family members are homeless with you now?"
+            },
+            {
+            	type:"text",
+            	name:"surveyor_name",
+            	title:"Person Completing Survey:"
+            },
+            {
+            	type:"text",
+            	name:"deployment_site",
+            	title:"Deployment Site:"
             }
          ]
       }
