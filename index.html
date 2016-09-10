@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Hillsborough County Point-in-time homeless survey">
     <meta name="author" content="Support Team">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="img/favicon.ico">
 
     <title>THHI</title>
 
@@ -21,23 +21,33 @@
 	<!-- Local scripts and data -->
 	<script src="js/survey.bootstrap.min.js"></script>
 	<script src="js/questions.js"></script>    
+	<script src="js/location.js"></script>
 
     <!-- Custom styles for this template -->
     <link href="css/sticky-footer-navbar.css" rel="stylesheet"/>
-    </script>
     
     <!-- survey.js integration -->
     <script>
-	function sendDataToServer(survey) {
-	  var resultAsString = JSON.stringify(survey.data);
-	  alert(resultAsString);
-	}		
+		function sendDataToServer(survey) {
+		  var resultAsString = JSON.stringify(survey.data);
+		  alert(resultAsString);
+		}		
 
-	$(document).ready(function() {
-		var survey = new Survey.Survey(surveyData, "surveyContainer");
-		//Use onComplete event to save the data           
-		survey.onComplete.add(sendDataToServer);
-	});    
+		$(document).ready(function() {
+			var survey = new Survey.Survey(surveyData, "surveyContainer");
+			//Use onComplete event to save the data           
+			survey.onComplete.add(sendDataToServer);
+		});    
+    </script>
+    
+    <!-- Google Maps and hidden location input properties -->
+    <script>
+    	$(document).ready(function() {
+			embedGoogleMap("map");
+		});
+		$('#survey_location').val(getLocationString());
+		$('#survey_date').val(getDateString());
+		$('#survey_time').val(getTimeString());                     
     </script>
   </head>
   
@@ -107,14 +117,14 @@
 			</div>
 		</div>
 
-		<!--- Google Maps divider 
+		<!--- Google Maps divider -->
 		<p class="lead"><span class="glyphicon glyphicon-map-marker"></span>Map Location</p>
 		<div class="well">
 			<div id="map"></div>
 		</div>
 		<input type="hidden" name="survey_location" id="survey_location">
 		<input type="hidden" name="survey_date" id="survey_date">
-		<input type="hidden" name="survey_time" id="survey_time"> -->
+		<input type="hidden" name="survey_time" id="survey_time">
 	</div>
 	</div>
 	
