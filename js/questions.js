@@ -733,7 +733,7 @@ var surveyData = {
                         { name: "gender", title: "Gender", choices: ["Male", "Female", "M to F Transgender", "F to M Transgender"], cellType: "radiogroup" },
                         { name: "age", title: "Age", cellType: "text" },
                         { name: "hispanic", title: "Hispanic/Latino", choices: ["Yes", "No"], cellType: "radiogroup" },
-                        { name: "race", title: "Race", choices: ["American Indian/Alaskan Native", "Asian", "Black/African American", "White", "Native Hawaiian/Other Pacific Islander", "Other"], cellType: "checkbox"}],
+                        { name: "race", title: "Race", choices: ["American Indian/Alaskan Native", "Asian", "Black/African American", "White", "Native Hawaiian/Other Pacific Islander"], cellType: "checkbox", hasOther: true}],
                rows: [{ value: "child1", text: "Child 1" },
                      { value: "child2", text: "Child 2" },
                      { value: "child3", text: "Child 3" },
