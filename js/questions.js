@@ -59,7 +59,14 @@ var surveyData = {
       name: "disability_status",
       operator:"equal",
       questions:["disability_type"]
-   }
+   },
+    { 
+   type: "visible", 
+   name: "family_homeless_with", 
+   operator: "equal", 
+   value: "yes", 
+   questions: ["homeless_adults", "homeless_children"] 
+   },
 
 ],
    pages: [
@@ -698,11 +705,13 @@ var surveyData = {
             {
                type:"text",
                name:"homeless_adults",
+               visible:false,
                title:"How many other Adult family members are homeless with you now?"
             },
             {
                type:"text",
                name:"homeless_children",
+               visible:false,
                title:"How many other Children family members are homeless with you now?"
             },
             {
