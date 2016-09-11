@@ -12,6 +12,12 @@ var surveyData = {
    operator: "equal", 
    value: "no" 
    },
+   {
+   type: "complete",
+   name:"where_stay_last",
+   operator: "equal",
+   value: "nonHomelessSituation"
+   },
    { 
    type: "visible", 
    name: "veteran_status", 
@@ -134,7 +140,7 @@ var surveyData = {
                   },
                   {
                      value:"hotel",
-                     text:"Hotel/Motel paname for by an agency or organization"
+                     text:"Hotel/Motel paid for by an agency or organization"
                   },
                   {
                      value:"psychiatric90",
@@ -159,6 +165,10 @@ var surveyData = {
                   {
                      value:"emergencyShelterName",
                      text:"Emergency shelter"
+                  },
+                  {
+                     value:"nonHomelessSituation",
+                     text:"Non-Homeless situation.  Examples include:  Rental apartment/home, staying or living with friends or family, permanent supportive housing, long term care or nursing home, residential project or halfway house, or hotel/motel paid for by self."
                   }
                ]
             },
@@ -196,7 +206,7 @@ var surveyData = {
                   },
                   {
                      value:"hotel",
-                     text:"Hotel/Motel paname for by an agency or organization"
+                     text:"Hotel/Motel paid for by an agency or organization"
                   },
                   {
                      value:"psychiatric90",
@@ -502,7 +512,7 @@ var surveyData = {
                   },
                   {
                      value:"hiv",
-                     text:"HIV/AnameS"
+                     text:"HIV/AIDS"
                   }
                ]
             },
@@ -524,7 +534,7 @@ var surveyData = {
             {
                type:"radiogroup",
                name:"military_branch",
-               title:"What Branch of the Military do you serve?",
+               title:"What Branch of the Military did you serve?",
                visible:false,
                choices:[
                   {
