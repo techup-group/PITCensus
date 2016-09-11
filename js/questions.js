@@ -1,4 +1,48 @@
 var surveyData = {
+   triggers: [
+   { 
+   type: "visible", 
+   name: "veteran_status", 
+   operator: "equal", 
+   value: "yes", 
+   questions: ["military_branch","military_enter_date","military_exit_date","discharge_type"] 
+   },
+   { 
+   type: "visible", 
+   name: "how_long_stay", 
+   operator: "equal", 
+   value: "less90", 
+   questions: ["before90"] 
+   },
+   { 
+   type: "visible", 
+   name: "where_stay_last", 
+   operator: "equal", 
+   value: "psychiatric", 
+   questions: ["how_long_stay"] 
+   },
+   { 
+   type: "visible", 
+   name: "where_stay_last", 
+   operator: "equal", 
+   value: "substanceAbuse", 
+   questions: ["how_long_stay"] 
+   },
+   { 
+   type: "visible", 
+   name: "where_stay_last", 
+   operator: "equal", 
+   value: "hospital",
+   questions: ["how_long_stay"] 
+   },
+   { 
+   type: "visible", 
+   name: "where_stay_last", 
+   operator: "equal", 
+   value: "jail", 
+   questions: ["how_long_stay"] 
+   }
+],
    pages: [
       {
          name:"observation",
@@ -72,6 +116,21 @@ var surveyData = {
                      value:"emergencyShelter",
                      text:"Emergency shelter"
                   }
+               ]
+            },
+            {
+               type:"radiogroup",
+               name:"how_long_stay",
+               title:"How long were you in the facility/jail/hospital?",
+               choices:[
+               {
+                  value:"moreThan90",
+                  text:"More than 90 days."
+               },
+               {
+                  value:"lessThan90",
+                  text:"Less than 90 days."
+               }
                ]
             }
          ]
