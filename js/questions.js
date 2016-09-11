@@ -607,11 +607,36 @@ var surveyData = {
                name:"homeless_adults",
                title:"How many other Adult family members are homeless with you now?"
             },
+                        {
+               type: "matrixdropdown", name: "homeless_adult_info", title: "Enter adult information below:",
+               columns: [{ name: "initials", title: "Initials", cellType: "text" },
+                        { name: "gender", title: "Gender", choices: ["Male", "Female", "M to F Transgender", "F to M Transgender"], cellType: "radiogroup" },
+                        { name: "age", title: "Age", cellType: "text" },
+                        { name: "hispanic", title: "Hispanic/Latino", choices: ["Yes", "No"], cellType: "radiogroup" },
+                        { name: "race", title: "Race", choices: ["American Indian/Alaskan Native", "Asian", "Black/African American", "White", "Native Hawaiian/Other Pacific Islander", "Other"], cellType: "checkbox"},
+                        { name: "race", title: "Veteran", choices: ["Yes", "No"], cellType: "radiogroup" }],
+               rows: [{ value: "adult1", text: "Adult 1" },
+                     { value: "adult2", text: "Adult 2" },
+                     { value: "adult3", text: "Adult 3" },
+                     { value: "adult4", text: "Adult 4" },
+                     { value: "adult5", text: "Adult 5" }]},
             {
                type:"text",
                name:"homeless_children",
                title:"How many other Children family members are homeless with you now?"
             },
+            {
+               type: "matrixdropdown", name: "homeless_children_info", title: "Enter children information below:",
+               columns: [{ name: "initials", title: "Initials", cellType: "text" },
+                        { name: "gender", title: "Gender", choices: ["Male", "Female", "M to F Transgender", "F to M Transgender"], cellType: "radiogroup" },
+                        { name: "age", title: "Age", cellType: "text" },
+                        { name: "hispanic", title: "Hispanic/Latino", choices: ["Yes", "No"], cellType: "radiogroup" },
+                        { name: "race", title: "Race", choices: ["American Indian/Alaskan Native", "Asian", "Black/African American", "White", "Native Hawaiian/Other Pacific Islander", "Other"], cellType: "checkbox"}],
+               rows: [{ value: "child1", text: "Child 1" },
+                     { value: "child2", text: "Child 2" },
+                     { value: "child3", text: "Child 3" },
+                     { value: "child4", text: "Child 4" },
+                     { value: "child5", text: "Child 5" }]},
             {
             	type:"text",
             	name:"surveyor_name",
@@ -623,10 +648,10 @@ var surveyData = {
             	title:"Deployment Site:"
             },
             {
-     			type: "comment",
-     			name: "notes",
-     			title:"NOTES:"
-    		}
+     			   type: "comment",
+     			   name: "notes",
+     			   title:"NOTES:"
+    		   }
          ]
       }
    ]

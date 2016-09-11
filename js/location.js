@@ -44,8 +44,9 @@ function getLocation()
          retlong = position.coords.longitude;
      }
 
-     function failure() {
-         console.log("Failed to get position; user cancled?")
+     function failure(err) {
+        console.warn('ERROR(' + err.code + '): ' + err.message);
+        console.log("Failed to get position; user cancled?")
      }
      
  	return { lat:retlat, long:retlong }    
