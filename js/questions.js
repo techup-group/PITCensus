@@ -506,11 +506,11 @@ var surveyData = {
                choices:[
                   {
                      value:"yes",
-                     text:"yes"
+                     text:"Yes"
                   },
                   {
                      value:"no",
-                     text:"no"
+                     text:"No"
                   }
                ]
             },
@@ -590,11 +590,11 @@ var surveyData = {
                choices:[
                   {
                      value:"yes",
-                     text:"yes"
+                     text:"Yes"
                   },
                   {
                      value:"no",
-                     text:"no"
+                     text:"No"
                   }
                ]
             },
@@ -605,11 +605,11 @@ var surveyData = {
                choices:[
                   {
                      value:"yes",
-                     text:"yes"
+                     text:"Yes"
                   },
                   {
                      value:"no",
-                     text:"no"
+                     text:"No"
                   }
                ]
             },
@@ -618,8 +618,14 @@ var surveyData = {
                name:"felony_status",
                title:"Have you ever been charged with a felony?",
                choices:[
-                  "Yes",
-                  "No"
+                  {
+                     value:"yes",
+                     text:"Yes"
+                  },
+                  {
+                     value:"no",
+                     text:"No"
+                  }
                ]
             },
             {
