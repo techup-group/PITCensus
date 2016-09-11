@@ -252,6 +252,7 @@ var surveyData = {
                type:"checkbox",
                name:"race",
                title:"What is your race?",
+               hasOther:true,
                choices:[
                   {
                      value:"americanIndian",
@@ -272,10 +273,6 @@ var surveyData = {
                   {
                      value:"white",
                      text:"White"
-                  },
-                  {
-                     value:"other",
-                     text:"Other"
                   }
                ]
             },
@@ -369,6 +366,7 @@ var surveyData = {
                type:"radiogroup",
                name:"homelessness_cause",
                title:"What is the primary cause of your homelessness?",
+               hasOther:true,
                choices:[
                   {
                      value:"finance",
@@ -393,10 +391,6 @@ var surveyData = {
                   {
                      value:"medical",
                      text:"Medical/disability problems"
-                  },
-                  {
-                     value:"other",
-                     text:"Other"
                   }
                ]
             },
@@ -521,6 +515,7 @@ var surveyData = {
                name:"discharge_type",
                title:"What type of discharge did you receive?",
                visible:false,
+               hasOther:true,
                choices:[
                   {
                      value:"honorable",
@@ -541,10 +536,6 @@ var surveyData = {
                   {
                      value:"badConduct",
                      text:"Bad conduct"
-                  },
-                  {
-                     value:"other",
-                     text:"Other"
                   }
                ]
             },
@@ -591,6 +582,7 @@ var surveyData = {
                type:"checkbox",
                name:"income_type",
                title:"Do you receive any income?",
+               hasOther:true,
                choices:[
                   "Yes  (If yes)",
                   "No Income",
@@ -607,8 +599,7 @@ var surveyData = {
                   "Private disability insurance",
                   "Unemployment",
                   "Child support",
-                  "Amount $ /month (Gross)",
-                  "Other source"
+                  "Amount $ /month (Gross)"
                ]
             },
             {
