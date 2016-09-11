@@ -12,36 +12,30 @@ var surveyData = {
    name: "how_long_stay", 
    operator: "equal", 
    value: "less90", 
-   questions: ["before90"] 
+   questions: ["where_stay_last_before90"] 
    },
    { 
    type: "visible", 
    name: "where_stay_last", 
-   operator: "equal", 
-   value: "psychiatric", 
+   operator: "contains", 
+   value: "90", 
    questions: ["how_long_stay"] 
+   },
+   {
+   type: "visible",
+   name: "where_stay_last",
+   operator: "contains",
+   value: "Name",
+   questions: ["name_facility"]
    },
    { 
    type: "visible", 
-   name: "where_stay_last", 
-   operator: "equal", 
-   value: "substanceAbuse", 
-   questions: ["how_long_stay"] 
-   },
-   { 
-   type: "visible", 
-   name: "where_stay_last", 
-   operator: "equal", 
-   value: "hospital",
-   questions: ["how_long_stay"] 
-   },
-   { 
-   type: "visible", 
-   name: "where_stay_last", 
-   operator: "equal", 
-   value: "jail", 
-   questions: ["how_long_stay"] 
+   name: "where_stay_last_before90", 
+   operator: "contains", 
+   value: "90", 
+   questions: ["name_facility_less90"] 
    }
+
 ],
    pages: [
       {
@@ -93,45 +87,98 @@ var surveyData = {
                      text:"Hotel/Motel paname for by an agency or organization"
                   },
                   {
-                     value:"psychiatric",
+                     value:"psychiatric90",
                      text:"Psychiatric facility"
                   },
                   {
-                     value:"substanceAbuse",
+                     value:"substanceAbuse90",
                      text:"Substance abuse treatment facility"
                   },
                   {
-                     value:"hospital",
+                     value:"hospital90",
                      text:"Hospital"
                   },
                   {
-                     value:"jail",
+                     value:"jail90",
                      text:"Jail, prison, detention facility"
                   },
                   {
-                     value:"transitionalHousing",
+                     value:"transitionalHousingName",
                      text:"Transitional Housing"
                   },
                   {
-                     value:"emergencyShelter",
+                     value:"emergencyShelterName",
                      text:"Emergency shelter"
                   }
                ]
             },
             {
+               type:"text",
+               name:"name_facility",
+               title:"Name of Facility:",
+               visible:false
+            },
+            {
                type:"radiogroup",
                name:"how_long_stay",
                title:"How long were you in the facility/jail/hospital?",
+               visible:false,
                choices:[
                {
-                  value:"moreThan90",
+                  value:"more90",
                   text:"More than 90 days."
                },
                {
-                  value:"lessThan90",
+                  value:"less90",
                   text:"Less than 90 days."
                }
                ]
+            },
+            {
+               type:"radiogroup",
+               name:"where_stay_last_before90",
+               title:"If person indicates they are staying in a facility/hospital and “Less than 90 days” is checked – ASK: Where did you stay right before entering the facility/jail/hospital:",
+               visible:false,
+               choices:[
+                                  {
+                     value:"notFit",
+                     text:"Place not meant for habitation (car, street, abandoned building, etc.)"
+                  },
+                  {
+                     value:"hotel",
+                     text:"Hotel/Motel paname for by an agency or organization"
+                  },
+                  {
+                     value:"psychiatric90",
+                     text:"Psychiatric facility"
+                  },
+                  {
+                     value:"substanceAbuse90",
+                     text:"Substance abuse treatment facility"
+                  },
+                  {
+                     value:"hospital90",
+                     text:"Hospital"
+                  },
+                  {
+                     value:"jail90",
+                     text:"Jail, prison, detention facility"
+                  },
+                  {
+                     value:"transitionalHousingName",
+                     text:"Transitional Housing"
+                  },
+                  {
+                     value:"emergencyShelterName",
+                     text:"Emergency shelter"
+                  }
+               ]
+            },
+            {
+               type:"text",
+               name:"name_facility_less90",
+               title:"Name of Facility:",
+               visible:false
             }
          ]
       },
@@ -433,6 +480,7 @@ var surveyData = {
                type:"radiogroup",
                name:"military_branch",
                title:"What Branch of the Military do you serve?",
+               visible:false,
                choices:[
                   {
                      value:"army",
@@ -459,17 +507,20 @@ var surveyData = {
             {
                type:"text",
                name:"military_enter_date",
-               title:"What date did you enter the service? (Month/Year)"
+               title:"What date did you enter the service? (Month/Year)",
+               visible:false
             },
             {
                type:"text",
                name:"military_exit_date",
-               title:"What date did you exit the service? (Month/Year)"
+               title:"What date did you exit the service? (Month/Year)",
+               visible:false
             },
             {
                type:"radiogroup",
                name:"discharge_type",
                title:"What type of discharge did you receive?",
+               visible:false,
                choices:[
                   {
                      value:"honorable",
