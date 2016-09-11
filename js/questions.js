@@ -1,11 +1,30 @@
 var surveyData = {
    triggers: [
    { 
+   type: "complete", 
+   name: "completed_survey", 
+   operator: "equal", 
+   value: "yes" 
+   },
+   { 
+   type: "complete", 
+   name: "currently_homeless", 
+   operator: "equal", 
+   value: "no" 
+   },
+   { 
    type: "visible", 
    name: "veteran_status", 
    operator: "equal", 
    value: "yes", 
    questions: ["military_branch","military_enter_date","military_exit_date","discharge_type"] 
+   },
+   { 
+   type: "visible", 
+   name: "income", 
+   operator: "equal", 
+   value: "Yes", 
+   questions: ["income_type", "income_amount"] 
    },
    { 
    type: "visible", 
@@ -34,7 +53,20 @@ var surveyData = {
    operator: "contains", 
    value: "90", 
    questions: ["name_facility_less90"] 
-   }
+   },
+   {
+      type: "visible",
+      name: "disability_status",
+      operator:"equal",
+      questions:["disability_type"]
+   },
+    { 
+   type: "visible", 
+   name: "family_homeless_with", 
+   operator: "equal", 
+   value: "yes", 
+   questions: ["homeless_adults", "homeless_children"] 
+   },
 
 ],
    pages: [
@@ -44,10 +76,16 @@ var surveyData = {
             {
                type:"radiogroup",
                name:"on_observation",
-               title:"(Volunteer quesion) Is this survey completed on observation?",
+               title:"(Volunteer quesion) Was this survey completed on observation?",
                choices:[
-                  "yes",
-                  "no"
+               {
+                  value:"yes",
+                  text:"Yes"
+               },
+               { 
+                 value:"no",
+                  text:"No"
+               }
                ]
             }
          ]
@@ -60,8 +98,14 @@ var surveyData = {
                name:"completed_survey",
                title:"Have you completed this survey earlier today?",
                choices:[
-                  "yes",
-                  "no"
+               {
+                  value:"yes",
+                  text:"Yes"
+               },
+               { 
+                 value:"no",
+                  text:"No"
+               }
                ]
             },
             {
@@ -69,8 +113,14 @@ var surveyData = {
                name:"currently_homeless",
                title:"Are you currently homeless?",
                choices:[
-                  "yes",
-                  "no"
+               {
+                  value:"yes",
+                  text:"Yes"
+               },
+               { 
+                 value:"no",
+                  text:"No"
+               }
                ]
             },
             {
@@ -428,6 +478,7 @@ var surveyData = {
                type:"checkbox",
                name:"disability_type",
                title:"What type of disabling condition do you have (you may select more than one condition)?",
+               visible:false,
                choices:[
                   {
                      value:"physical",
@@ -462,11 +513,11 @@ var surveyData = {
                choices:[
                   {
                      value:"yes",
-                     text:"yes"
+                     text:"Yes"
                   },
                   {
                      value:"no",
-                     text:"no"
+                     text:"No"
                   }
                ]
             },
@@ -546,11 +597,11 @@ var surveyData = {
                choices:[
                   {
                      value:"yes",
-                     text:"yes"
+                     text:"Yes"
                   },
                   {
                      value:"no",
-                     text:"no"
+                     text:"No"
                   }
                ]
             },
@@ -561,11 +612,11 @@ var surveyData = {
                choices:[
                   {
                      value:"yes",
-                     text:"yes"
+                     text:"Yes"
                   },
                   {
                      value:"no",
-                     text:"no"
+                     text:"No"
                   }
                ]
             },
@@ -574,18 +625,38 @@ var surveyData = {
                name:"felony_status",
                title:"Have you ever been charged with a felony?",
                choices:[
-                  "Yes",
-                  "No"
+                  {
+                     value:"yes",
+                     text:"Yes"
+                  },
+                  {
+                     value:"no",
+                     text:"No"
+                  }
                ]
+            },
+            {
+               type:"radiogroup",
+               name:"income",
+               title:"Do you receive any income?",
+               choices: [
+               "Yes",
+               "No Income"
+               ]
+            },
+            {
+               type:"text",
+               name:"income_amount",
+               title:"How much income do you receive (per month, gross)?",
+               visible:false
             },
             {
                type:"checkbox",
                name:"income_type",
-               title:"Do you receive any income?",
+               title:"What type(s) do you receive",
+               visible:false,
                hasOther:true,
                choices:[
-                  "Yes  (If yes)",
-                  "No Income",
                   "Earned income",
                   "Alimony",
                   "SSA retirement",
@@ -598,13 +669,43 @@ var surveyData = {
                   "SSDI",
                   "Private disability insurance",
                   "Unemployment",
-                  "Child support",
-                  "Amount $ /month (Gross)"
+                  "Child support"
+               ]
+            },
+            {
+               type:"radiogroup",
+               name:"current_employed",
+               title:"Are you currently employed?",
+               choices:[
+                  {
+                     value:"yes",
+                     text:"Yes"
+                  },
+                  {
+                     value:"no",
+                     text:"No"
+                  }
+               ]
+            },     
+            {
+               type:"radiogroup",
+               name:"family_homeless_with",
+               title:"Do you have any family members who are homeless and with you now?",
+               choices:[
+                  {
+                     value:"yes",
+                     text:"Yes"
+                  },
+                  {
+                     value:"no",
+                     text:"No"
+                  }
                ]
             },
             {
                type:"text",
                name:"homeless_adults",
+               visible:false,
                title:"How many other Adult family members are homeless with you now?"
             },
                         {
@@ -623,6 +724,7 @@ var surveyData = {
             {
                type:"text",
                name:"homeless_children",
+               visible:false,
                title:"How many other Children family members are homeless with you now?"
             },
             {
