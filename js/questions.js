@@ -564,7 +564,7 @@ var surveyData = {
                ]
             },
             {
-               type: "matrixdropdown", name: "military_dates", title: "What dates did you enter/leave the military?",
+               type: "matrixdropdown", name: "military_dates", title: "What dates did you enter/leave the military?",visible:false,
                columns: [
                { 
                name: "month", 
