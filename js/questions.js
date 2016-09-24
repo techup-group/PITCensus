@@ -799,9 +799,17 @@ var surveyData = {
             	title:"Person Completing Survey:"
             },
             {
-            	type:"text",
+            	type:"dropdown",
             	name:"deployment_site",
-            	title:"Deployment Site:"
+            	title:"Deployment Site:",
+               choices: ["Brandon - First Presbyterian Church of Brandon",
+                        "Downtown - Hyde Park United Methodist",
+                        "West Tampa - West Tampa Resource Center",
+                        "Plant City - Plant City Resource Center",
+                        "Ruskin - Ruskin (SouthShore) Resource Center",
+                        "Town 'N County - Hillsborough County Sheriffs Office Substation",
+                        "University Area - University Community Resource Center",
+                        "West Shore - Florida Bahamas Synod"]
             },
             {
      			   type: "comment",
