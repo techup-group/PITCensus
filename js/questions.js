@@ -610,18 +610,6 @@ var surveyData = {
                       { value: "leave", text: "When did you leave?" }]
             },
             {
-               type:"text",
-               name:"military_enter_date",
-               title:"What date did you enter the service? (Month/Year)",
-               visible:false
-            },
-            {
-               type:"text",
-               name:"military_exit_date",
-               title:"What date did you exit the service? (Month/Year)",
-               visible:false
-            },
-            {
                type:"radiogroup",
                name:"discharge_type",
                title:"What type of discharge did you receive?",
