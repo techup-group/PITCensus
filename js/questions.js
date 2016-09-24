@@ -489,11 +489,11 @@ var surveyData = {
                choices:[
                   {
                      value:"yes",
-                     text:"yes"
+                     text:"Yes"
                   },
                   {
                      value:"no",
-                     text:"no"
+                     text:"No"
                   }
                ]
             },
@@ -504,11 +504,11 @@ var surveyData = {
                choices:[
                   {
                      value:"yes",
-                     text:"yes"
+                     text:"Yes"
                   },
                   {
                      value:"no",
-                     text:"no"
+                     text:"No"
                   }
                ]
             },
