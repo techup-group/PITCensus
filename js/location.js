@@ -14,24 +14,6 @@ function getDateString()
 
 function getLocation(callback) 
 {
-<<<<<<< HEAD
-     x = navigator.geolocation;
-     x.getCurrentPosition(success, failure);
-     var retlat = 0;
-     var retlong = 0;
-
-     function success(position) {
-         retlat = position.coords.latitude;
-         retlong = position.coords.longitude;
-     }
-
-     function failure(err) {
-        console.warn('ERROR(' + err.code + '): ' + err.message);
-        console.log("Failed to get position; user cancled?")
-     }
-     
- 	return { lat:retlat, long:retlong }    
-=======
     function success(position) {
         callback && callback(null, position.coords);
     }
@@ -41,7 +23,6 @@ function getLocation(callback)
     }
 
     navigator.geolocation.getCurrentPosition(success, failure);
->>>>>>> eadd87ec5e039d0a656283eeb508651ae920abf4
 }
 
 function embedGoogleMap(div) 
@@ -81,3 +62,4 @@ function getLocationString(callback)
         callback && callback(null, location.latitude + "|" + location.longitude);
     });
 }
+
