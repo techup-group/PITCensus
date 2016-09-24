@@ -29,9 +29,17 @@
     <!-- survey.js integration -->
     <script>
         function sendDataToServer(survey) {
-          var resultAsString = JSON.stringify(survey.data);
-          alert(resultAsString);
-        }        
+            //Add hidden fields to result from survey
+            data = survey.data;
+            data.survey_location = $('#survey_location').val();
+            data.survey_date = $('#survey_date').val();
+            data.survey_time = $('#survey_time').val(); 
+
+            var resultAsString = JSON.stringify(data);
+            
+            //TODO: Send to server
+            alert(resultAsString);
+        }
 
         $(document).ready(function() {
             var survey = new Survey.Survey(surveyData, "surveyContainer");
@@ -42,14 +50,14 @@
     
     <!-- Google Maps and hidden location input properties -->
     <script>
-    $(document).ready(function() {
-        embedGoogleMap(document.getElementById("map"));
-        getLocationString(function(error, positionString) {
-            $('#survey_location').val(positionString);
-        });
-        $('#survey_date').val(getDateString());
-        $('#survey_time').val(getTimeString()); 
-    });                    
+        $(document).ready(function() {
+            embedGoogleMap(document.getElementById("map"));
+            getLocationString(function(error, positionString) {
+                $('#survey_location').val(positionString);
+            });
+            $('#survey_date').val(getDateString());
+            $('#survey_time').val(getTimeString()); 
+        });                    
     </script>
     
     <style>
@@ -131,6 +139,8 @@
         <div class="well">
             <div id="map"></div>
         </div>
+
+        <!-- Hidden fields for date/time/location -->
         <input type="hidden" name="survey_location" id="survey_location">
         <input type="hidden" name="survey_date" id="survey_date">
         <input type="hidden" name="survey_time" id="survey_time">
