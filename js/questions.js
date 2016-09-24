@@ -71,7 +71,7 @@ var surveyData = {
    name: "family_homeless_with", 
    operator: "equal", 
    value: "yes", 
-   questions: ["homeless_adults", "homeless_children"] 
+   questions: ["homeless_adults", "homeless_children", "homeless_children_info", "homeless_adults_info"] 
    },
 
 ],
@@ -519,7 +519,7 @@ var surveyData = {
             {
                type:"radiogroup",
                name:"veteran_status",
-               title:"Have you ever served on Active Duty in the US Military? (If \"No\", skip next question)",
+               title:"Have you ever served on Active Duty in the US Military?",
                choices:[
                   {
                      value:"yes",
@@ -713,13 +713,15 @@ var surveyData = {
                ]
             },
             {
-               type:"text",
+               type:"dropdown",
                name:"homeless_adults",
                visible:false,
-               title:"How many other Adult family members are homeless with you now?"
+               title:"How many other Adult family members are homeless with you now?",
+               choices: ["0","1","2","3","4","5","6","7","8","9","10","11","12",
+                        "13","14","15","16","17","18","19","20"]
             },
                         {
-               type: "matrixdropdown", name: "homeless_adult_info", title: "Enter adult information below:",
+               type: "matrixdropdown", name: "homeless_adults_info", title: "Enter adult information below:", visible:false,
                columns: [{ name: "initials", title: "Initials", cellType: "text" },
                         { name: "gender", title: "Gender", choices: ["Male", "Female", "M to F Transgender", "F to M Transgender"], cellType: "radiogroup" },
                         { name: "age", title: "Age", cellType: "text" },
@@ -732,18 +734,21 @@ var surveyData = {
                      { value: "adult4", text: "Adult 4" },
                      { value: "adult5", text: "Adult 5" }]},
             {
-               type:"text",
+               type:"dropdown",
                name:"homeless_children",
                visible:false,
-               title:"How many other Children family members are homeless with you now?"
+               title:"How many other Children family members are homeless with you now?",
+               choices: ["0","1","2","3","4","5","6","7","8","9","10","11","12",
+                        "13","14","15","16","17","18","19","20"]
             },
             {
-               type: "matrixdropdown", name: "homeless_children_info", title: "Enter children information below:",
+               type: "matrixdropdown", name: "homeless_children_info", title: "Enter children information below:", visible:false,
                columns: [{ name: "initials", title: "Initials", cellType: "text" },
                         { name: "gender", title: "Gender", choices: ["Male", "Female", "M to F Transgender", "F to M Transgender"], cellType: "radiogroup" },
                         { name: "age", title: "Age", cellType: "text" },
                         { name: "hispanic", title: "Hispanic/Latino", choices: ["Yes", "No"], cellType: "radiogroup" },
-                        { name: "race", title: "Race", choices: ["American Indian/Alaskan Native", "Asian", "Black/African American", "White", "Native Hawaiian/Other Pacific Islander"], cellType: "checkbox", hasOther: true}],
+                        { name: "race", title: "Race", choices: ["American Indian/Alaskan Native", "Asian", "Black/African American", "White", "Native Hawaiian/Other Pacific Islander"], cellType: "checkbox", hasOther: true},
+                        { name: "raceOther", title: "Race - Other (optional)", cellType: "text"}],
                rows: [{ value: "child1", text: "Child 1" },
                      { value: "child2", text: "Child 2" },
                      { value: "child3", text: "Child 3" },
