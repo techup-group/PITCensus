@@ -23,7 +23,7 @@ var surveyData = {
    name: "veteran_status", 
    operator: "equal", 
    value: "yes", 
-   questions: ["military_branch","military_enter_date","military_exit_date","discharge_type", "military_dates"] 
+   questions: ["military_branch","discharge_type", "military_dates"] 
    },
    { 
    type: "visible", 
@@ -197,7 +197,7 @@ var surveyData = {
             {
                type:"radiogroup",
                name:"where_stay_last_before90",
-               title:"If person indicates they are staying in a facility/hospital and “Less than 90 days” is checked – ASK: Where did you stay right before entering the facility/jail/hospital:",
+               title:"Where did you stay right before entering the facility/jail/hospital:",
                visible:false,
                choices:[
                                   {
