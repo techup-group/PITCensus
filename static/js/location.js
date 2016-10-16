@@ -1,5 +1,7 @@
 "use strict";
 
+/* JavaScript to deal with Google maps and date/type embedding */
+
 function getTimeString() 
 {
     var current_date = new Date();
@@ -25,7 +27,7 @@ function getLocation(callback)
     navigator.geolocation.getCurrentPosition(success, failure);
 }
 
-function embedGoogleMap(div) 
+function embedGoogleMap(divId) 
 {
     getLocation(function(error, location) {
         if (error) {
@@ -44,7 +46,7 @@ function embedGoogleMap(div)
         }
 
         // create map with marker at coordinates
-        var map = new google.maps.Map(div, mapOptions);
+        var map = new google.maps.Map(divId, mapOptions);
         var marker = new google.maps.Marker({
             map: map,
             position: coords
