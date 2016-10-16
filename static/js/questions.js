@@ -758,8 +758,8 @@ var surveyData = {
                choices: ["0","1","2","3","4","5","6","7","8","9","10","11","12",
                         "13","14","15","16","17","18","19","20"]
             },
-                        {
-               type: "matrixdropdown", name: "homeless_adults_info", title: "Enter adult information below:", visible:false,
+            {
+               type: "matrixdynamic", name: "homeless_adults_info", title: "Enter adult information below:", visible:false,
                columns: [{ name: "initials", title: "Initials", cellType: "text" },
                         { name: "gender", title: "Gender", choices: ["Male", "Female", "M to F Transgender", "F to M Transgender"], cellType: "radiogroup" },
                         { name: "age", title: "Age", cellType: "text" },
@@ -767,11 +767,8 @@ var surveyData = {
                         { name: "race", title: "Race", choices: ["American Indian/Alaskan Native", "Asian", "Black/African American", "White", "Native Hawaiian/Other Pacific Islander", "Other"], cellType: "checkbox"},
                         { name: "race", title: "Veteran", choices: ["Yes", "No"], cellType: "radiogroup" },
                         { name: "raceOther", title: "Race - Other (optional)", cellType: "text"}],
-               rows: [{ value: "adult1", text: "Adult 1" },
-                     { value: "adult2", text: "Adult 2" },
-                     { value: "adult3", text: "Adult 3" },
-                     { value: "adult4", text: "Adult 4" },
-                     { value: "adult5", text: "Adult 5" }]},
+               rowCount: 1
+            },
             {
                type:"dropdown",
                name:"homeless_children",
@@ -781,18 +778,15 @@ var surveyData = {
                         "13","14","15","16","17","18","19","20"]
             },
             {
-               type: "matrixdropdown", name: "homeless_children_info", title: "Enter children information below:", visible:false,
+               type: "matrixdynamic", name: "homeless_children_info", title: "Enter children information below:", visible:false,
                columns: [{ name: "initials", title: "Initials", cellType: "text" },
                         { name: "gender", title: "Gender", choices: ["Male", "Female", "M to F Transgender", "F to M Transgender"], cellType: "radiogroup" },
                         { name: "age", title: "Age", cellType: "text" },
                         { name: "hispanic", title: "Hispanic/Latino", choices: ["Yes", "No"], cellType: "radiogroup" },
                         { name: "race", title: "Race", choices: ["American Indian/Alaskan Native", "Asian", "Black/African American", "White", "Native Hawaiian/Other Pacific Islander"], cellType: "checkbox", hasOther: true},
                         { name: "raceOther", title: "Race - Other (optional)", cellType: "text"}],
-               rows: [{ value: "child1", text: "Child 1" },
-                     { value: "child2", text: "Child 2" },
-                     { value: "child3", text: "Child 3" },
-                     { value: "child4", text: "Child 4" },
-                     { value: "child5", text: "Child 5" }]},
+                        rowCount:2
+            },
             {
             	type:"text",
             	name:"surveyor_name",
