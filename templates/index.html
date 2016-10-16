@@ -18,10 +18,8 @@
         data.survey_date = $('#survey_date').val();
         data.survey_time = $('#survey_time').val(); 
 
-        var resultAsString = JSON.stringify(data);
-
-        //TODO: Send to server
-        alert(resultAsString);
+        //Send data to server
+        $.post("{{ url_for('completedSurvey') }}", data);
     }
 
     $(document).ready(function() {
