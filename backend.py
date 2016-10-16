@@ -25,9 +25,10 @@ def index():
 @app.route("/admin", methods=['GET'])
 @requires_auth("admin", "panama")
 def admin():
-	
-	pie_chart = chart_generator.get_charts()
-	return render_template('admin.html', pie_chart=pie_chart)
+
+	last_night_chart = chart_generator.get_last_night_chart()
+	veteran_chart = chart_generator.get_veteran_chart()
+	return render_template('admin.html', last_night_chart=last_night_chart, veteran_chart=veteran_chart)
  
 # ---------------------------------------------------------------------------- #
 # REST API
