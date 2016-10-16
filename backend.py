@@ -2,6 +2,7 @@
 from flask import Flask, request, render_template, make_response, url_for
 import sys, json, os
 from authentication import requires_auth
+import pymongo
 
 # ---------------------------------------------------------------------------- #
 # Flask Application
@@ -26,8 +27,11 @@ def admin():
 
 @app.route("/completedSurvey", methods=['POST'])
 def completedSurvey():
-    print "Recieved Survey: ", request.form  #TODO: Place survey data in database
-    return make_response("OK", 200)
+	client = pymongo.MongoClient('localhost', 27017)
+	db = client["pit"]
+	collection = db["2017"]
+	collection.insert(dict(request.form))
+	return make_response("OK", 200)
 
 @app.route('/getSurveys/<amount>', methods=['GET'])
 def getSurveys(amount):
