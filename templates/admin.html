@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block body %}
-
+    <script type="text/javascript" src="http://kozea.github.com/pygal.js/javascripts/svg.jquery.js"></script>
+    <script type="text/javascript" src="http://kozea.github.com/pygal.js/javascripts/pygal-tooltips.js"></script>
 <!-- Begin Main page content -->
 <div class="container">
     <div class="panel panel-default">
@@ -10,7 +11,7 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-12">
-                    To the admin page!
+                    {{ pie_chart.render()|safe }}
                 </div>
             </div>
         </div>

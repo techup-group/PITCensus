@@ -9,6 +9,7 @@ Point in time count
 ```python
 pip install flask
 pip install pymongo
+pip install pygal
 python backend.py
 ```
 

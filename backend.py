@@ -3,6 +3,11 @@ from flask import Flask, request, render_template, make_response, url_for
 import sys, json, os
 from authentication import requires_auth
 import pymongo
+import chart_generator
+import sys  
+
+reload(sys)  
+sys.setdefaultencoding('utf8')
 
 # ---------------------------------------------------------------------------- #
 # Flask Application
@@ -20,7 +25,9 @@ def index():
 @app.route("/admin", methods=['GET'])
 @requires_auth("admin", "panama")
 def admin():
-    return render_template("admin.html")
+	
+	pie_chart = chart_generator.get_charts()
+	return render_template('admin.html', pie_chart=pie_chart)
  
 # ---------------------------------------------------------------------------- #
 # REST API
