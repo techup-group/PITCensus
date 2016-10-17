@@ -2,11 +2,10 @@
 from flask import Flask, request, render_template, make_response, url_for
 import sys, json, os
 from authentication import requires_auth
-import pymongo
+import database
 import chart_generator
-import sys  
 
-reload(sys)  
+reload(sys)
 sys.setdefaultencoding('utf8')
 
 # ---------------------------------------------------------------------------- #
@@ -25,7 +24,6 @@ def index():
 @app.route("/admin", methods=['GET'])
 @requires_auth("admin", "panama")
 def admin():
-
 	last_night_chart = chart_generator.get_last_night_chart()
 	veteran_chart = chart_generator.get_veteran_chart()
 	return render_template('admin.html', last_night_chart=last_night_chart, veteran_chart=veteran_chart)
@@ -35,10 +33,7 @@ def admin():
 
 @app.route("/completedSurvey", methods=['POST'])
 def completedSurvey():
-	client = pymongo.MongoClient('localhost', 27017)
-	db = client["pit"]
-	collection = db["2017"]
-	collection.insert(dict(request.form))
+	database.getCurrentCollection().insert(dict(request.form))
 	return make_response("OK", 200)
 
 @app.route('/getSurveys/<amount>', methods=['GET'])

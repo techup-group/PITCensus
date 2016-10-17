@@ -1,48 +1,42 @@
+#!/usr/bin/env python
+import database
 import pygal
 from pygal.style import DarkSolarizedStyle
-import pymongo
 
 def get_last_night_chart():
-
-	client = pymongo.MongoClient('localhost', 27017)
-	db = client["pit"]
-	collection = db["2017"]
-	cursor = collection.find()
-	hotel_cursor = collection.find({"where_stay_last": "hotel"})
-	notFit_cursor = collection.find({"where_stay_last": "notFit"})
-	psychiatricFacility_cursor = collection.find({"where_stay_last": "psychiatric90"})
-	substanceAbuse_cursor = collection.find({"where_stay_last": "substanceAbuse90"})
-	hospital_cursor = collection.find({"where_stay_last": "hospital90"})
-	jail_cursor = collection.find({"where_stay_last": "jail90"})
-	transitionalHousing_cursor = collection.find({"where_stay_last": "transitionalHousingName"})
-	emergencyHousing_cursor = collection.find({"where_stay_last": "emergencyShelterName"})
-	nonHomeless_cursor = collection.find({"where_stay_last": "nonHomelessSituation"})
-
-	pie_chart = pygal.Pie()
-	pie_chart.title = 'Where did the homeless spend last night? (in %)'
-	pie_chart.add('A hotel', hotel_cursor.count())
-	pie_chart.add('A place not fit for habitation', notFit_cursor.count())
-	pie_chart.add('A psychiatric facility', psychiatricFacility_cursor.count())
-	pie_chart.add('A substance abuse facility', substanceAbuse_cursor.count())
-	pie_chart.add('A hospital', hospital_cursor.count())
-	pie_chart.add('A jail', jail_cursor.count())
-	pie_chart.add('Transitional housing', transitionalHousing_cursor.count())
-	pie_chart.add('An emergency shelter', emergencyHousing_cursor.count())
-	pie_chart.add('A nonhomeless situation', nonHomeless_cursor.count())
-	return pie_chart
+	labels = {
+		"hotel": "Hotel",
+		"notFit": "A place not fit for habitation",
+		"psychiatric90": "A psychiatric facility",
+		"substanceAbuse90": "A substance abuse facility",
+		"hospital90": "Hospital",
+		"jail90": "Jail",
+		"transitionalHousingName": "Transitional housing",
+		"emergencyShelterName": "An emergency shelter",
+		"nonHomelessSituation": "Not homeless"
+	}
+	return get_pie_chart('Where did the homeless spend last night? (in %)', "where_stay_last", labels)
 
 
 def get_veteran_chart():
+	labels = {
+		"yes": "Veteran",
+		"no": "Not Veteran"
+	}
+	return get_pie_chart('How many of the homeless are veterans? (in %)', "veteran_status", labels)
 
-	client = pymongo.MongoClient('localhost', 27017)
-	db = client["pit"]
-	collection = db["2017"]
-	cursor = collection.find()
-	yes_cursor = collection.find({"veteran_status": "yes"})
-	no_cursor = collection.find({"veteran_status": "no"})
-	
+# Returns a pie chart counting answers for "surveyQuesion"
+# answerLabels: Dictionary for human-readable labels from survey answer keys
+def get_pie_chart(title, surveyQuesion, answerLabels):
 	pie_chart = pygal.Pie()
-	pie_chart.title = 'How many of the homeless are veterans? (in %)'
-	pie_chart.add('Veteran', yes_cursor.count())
-	pie_chart.add('Not a veteran', no_cursor.count())
-	return pie_chart
+	pie_chart.title = title
+
+	collection = database.getCurrentCollection()
+	results = collection.find({surveyQuesion:{'$exists': True}})
+	for result in results:
+		answer = result[surveyQuesion][0]  #TODO: Questions with multiple answers?
+		label = answerLabels[answer] if answer in answerLabels else answer
+		count = collection.find({surveyQuesion: answer}).count()
+		pie_chart.add(label, count)
+
+	return pie_chart	
