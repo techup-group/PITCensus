@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import database
 import pygal
+from collections import defaultdict
 from pygal.style import DarkSolarizedStyle
 
 def get_last_night_chart():
@@ -17,7 +18,6 @@ def get_last_night_chart():
 	}
 	return get_pie_chart('Where did the homeless spend last night? (in %)', "where_stay_last", labels)
 
-
 def get_veteran_chart():
 	labels = {
 		"yes": "Veteran",
@@ -30,13 +30,22 @@ def get_veteran_chart():
 def get_pie_chart(title, surveyQuesion, answerLabels):
 	pie_chart = pygal.Pie()
 	pie_chart.title = title
+	
+	for answer, count in get_survey_results(surveyQuesion).items():
+		label = answerLabels[answer] if answer in answerLabels else answer
+		pie_chart.add(label, count)
+
+	return pie_chart
+
+#Searches database for a quesion and returns a dictionary of the count of the answers
+def get_survey_results(surveyQuesion):
+	resultsDict = defaultdict(int)
 
 	collection = database.getCurrentCollection()
 	results = collection.find({surveyQuesion:{'$exists': True}})
 	for result in results:
 		answer = result[surveyQuesion][0]  #TODO: Questions with multiple answers?
-		label = answerLabels[answer] if answer in answerLabels else answer
 		count = collection.find({surveyQuesion: answer}).count()
-		pie_chart.add(label, count)
+		resultsDict[answer] += count
 
-	return pie_chart	
+	return resultsDict
