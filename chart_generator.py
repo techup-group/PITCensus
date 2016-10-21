@@ -7,14 +7,14 @@ from collections import defaultdict
 def get_last_night_chart():
 	labels = {
 		"hotel": "Hotel",
-		"notFit": "Homeless Situation",
-		"psychiatric90": "A psychiatric facility",
-		"substanceAbuse90": "A substance abuse facility",
+		"notFit": "Place Not Fit For Habitation",
+		"psychiatric90": "Psychiatric Facility",
+		"substanceAbuse90": "Substance Abuse Facility",
 		"hospital90": "Hospital",
 		"jail90": "Jail",
-		"transitionalHousingName": "Transitional housing",
-		"emergencyShelterName": "An emergency shelter",
-		"nonHomelessSituation": "Not homeless"
+		"transitionalHousingName": "Transitional Housing",
+		"emergencyShelterName": "Emergency Shelter",
+		"nonHomelessSituation": "Not Homeless"
 	}
 	return get_pie_chart('Where did the homeless spend last night?', "where_stay_last", labels)
 
