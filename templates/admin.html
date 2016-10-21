@@ -11,10 +11,13 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-12">
-                    {{ last_night_chart.render()|safe }}
+                    {{ last_night_chart.render()| safe }}
 
-                    {{ veteran_chart.render()|safe }}
+                    {{ veteran_chart.render()| safe }}
+
+                    {{ cause_chart.render() | safe }}
                 </div>
+                <h2> Survey Count: {{surveys}}  </h2>
             </div>
         </div>
     </div>

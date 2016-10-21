@@ -4,6 +4,7 @@ import sys, json, os
 from authentication import requires_auth
 import database
 import chart_generator
+import pygal
 
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -26,7 +27,9 @@ def index():
 def admin():
 	last_night_chart = chart_generator.get_last_night_chart()
 	veteran_chart = chart_generator.get_veteran_chart()
-	return render_template('admin.html', last_night_chart=last_night_chart, veteran_chart=veteran_chart)
+	cause_chart = chart_generator.get_cause_chart()
+	return render_template('admin.html', last_night_chart=last_night_chart, veteran_chart=veteran_chart,
+		cause_chart=cause_chart, surveys=6)
  
 # ---------------------------------------------------------------------------- #
 # REST API
