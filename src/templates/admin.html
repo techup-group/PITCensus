@@ -12,9 +12,19 @@
         </div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-md-12 well">
+                <div class="col-md-12">
+                    <p class="lead">To edit these settings, change the contents of the .ini file included with the server.</p>
                 </div>
             </div>
+            {% for section in config %}   
+            <div class="row">
+                {% for key,value in config[section].iteritems() %} 
+                <div class="col-md-4">
+                    <h4>{{ section + "." + key }}</h4><pre>{{ value + " " }}</pre>
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
         </div>
     </div>
 

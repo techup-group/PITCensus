@@ -7,10 +7,8 @@ Point in time count
 
 ##Running
 ```python
-pip install flask
-pip install pymongo
-pip install pygal
-python backend.py
+pip install flask pymongo pygal
+python src/backend.py
 ```
 
 
