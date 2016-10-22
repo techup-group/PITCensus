@@ -29,8 +29,9 @@ def admin():
 	veteran_chart = chart_generator.get_veteran_chart()
 	cause_chart = chart_generator.get_cause_chart()
 	volunteer_chart = chart_generator.get_volunteer_chart()
+	survey_count = database.getCurrentCollection().count()
 	return render_template('admin.html', last_night_chart=last_night_chart, veteran_chart=veteran_chart,
-		cause_chart=cause_chart, volunteer_chart=volunteer_chart, surveys=6)
+		cause_chart=cause_chart, volunteer_chart=volunteer_chart, surveys=survey_count)
  
 # ---------------------------------------------------------------------------- #
 # REST API
