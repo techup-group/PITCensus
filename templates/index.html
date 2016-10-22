@@ -17,6 +17,7 @@
         data.survey_location = $('#survey_location').val();
         data.survey_date = $('#survey_date').val();
         data.survey_time = $('#survey_time').val(); 
+        data.volunteer = $('#volunteer').val();
 
         //Send data to server
         $.post("{{ url_for('completedSurvey') }}", data);
@@ -52,7 +53,7 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-3">
-                    <p>Hello, my name is <input type="text" class="form-control input-sm" name="volunteer"/></p>
+                    <p>Hello, my name is <input type="text" class="form-control input-sm" name="volunteer" id="volunteer"/></p>
                 </div>
                 <div class="col-md-9">
                     I’m a volunteer for the Tampa/Hillsborough Continuum of Care.  We are conducting a survey to count homeless people to provide better services to them in our community.  Your participation is voluntary and your responses will not be shared with anyone outside of our team.  I need to read each question all the way through.  May I have a few minutes of your time?    

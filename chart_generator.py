@@ -4,6 +4,10 @@ import pygal
 from pygal.style import Style
 from collections import defaultdict
 
+def get_volunteer_chart():
+	labels = {}
+	return get_pie_chart('Volunteer Surveys Completed:', "volunteer", labels)
+
 def get_last_night_chart():
 	labels = {
 		"hotel": "Hotel",
