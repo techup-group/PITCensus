@@ -25,13 +25,9 @@ def index():
 @app.route("/admin", methods=['GET'])
 @requires_auth("admin", "panama")
 def admin():
-	last_night_chart = chart_generator.get_last_night_chart()
-	veteran_chart = chart_generator.get_veteran_chart()
-	cause_chart = chart_generator.get_cause_chart()
-	volunteer_chart = chart_generator.get_volunteer_chart()
+	pie_charts = chart_generator.get_pie_chart_list()
 	survey_count = database.getCurrentCollection().count()
-	return render_template('admin.html', last_night_chart=last_night_chart, veteran_chart=veteran_chart,
-		cause_chart=cause_chart, volunteer_chart=volunteer_chart, surveys=survey_count)
+	return render_template('admin.html', pie_charts=pie_charts, surveys=survey_count)
  
 # ---------------------------------------------------------------------------- #
 # REST API

@@ -1,8 +1,16 @@
 #!/usr/bin/env python
 import database
 import pygal
-from pygal.style import Style
 from collections import defaultdict
+
+def get_pie_chart_list():
+	return [
+		get_last_night_chart(),
+		get_volunteer_chart(),
+		get_veteran_chart(),
+		get_cause_chart()
+		#Add more pie charts here
+	]
 
 def get_volunteer_chart():
 	labels = {}
@@ -43,8 +51,16 @@ def get_cause_chart():
 # Returns a pie chart counting answers for "surveyQuestion"
 # answerLabels: Dictionary for human-readable labels from survey answer keys
 def get_pie_chart(title, surveyQuestion, answerLabels):
-	config = pygal.Config(legend_at_bottom=True)
-	pie_chart = pygal.Pie(config=config)
+	style = pygal.style.Style(
+		background='transparent',
+		title_font_size=30,
+		tooltip_font_size=20,
+	)
+	config = pygal.Config(
+		legend_at_bottom=True, 
+		legend_at_bottom_columns=2,
+	)
+	pie_chart = pygal.Pie(config=config, style=style)
 	pie_chart.title = title
 	
 	for answer, count in get_survey_results(surveyQuestion).items():
@@ -62,4 +78,5 @@ def get_survey_results(surveyQuestion):
 	for result in results:
 		answer = result[surveyQuestion][0]  #TODO: Questions with multiple answers?
 		resultsDict[answer] += 1
+
 	return resultsDict

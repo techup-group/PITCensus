@@ -3,23 +3,18 @@
     <script type="text/javascript" src="http://kozea.github.com/pygal.js/javascripts/svg.jquery.js"></script>
     <script type="text/javascript" src="http://kozea.github.com/pygal.js/javascripts/pygal-tooltips.js"></script>
 <!-- Begin Main page content -->
-<div class="container">
+<div class="container" style="padding-bottom: 50px; padding-top: 20px">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 style="color:white;">Welcome</h3>
+            <h3 style="color:white;">Survey Count: <b>{{surveys}}</b></h3>
         </div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-md-12">
-                    {{ last_night_chart.render()| safe }}
-
-                    {{ veteran_chart.render()| safe }}
-
-                    {{ cause_chart.render() | safe }}
-
-                    {{ volunteer_chart.render() | safe }}
-                </div>
-                <h2> Survey Count: {{surveys}}  </h2>
+                {% for chart in pie_charts %}
+                    <div class="col-md-6 well">
+                        {{ chart.render() | safe }}
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>
