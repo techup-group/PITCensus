@@ -55,10 +55,11 @@ def get_pie_chart(title, surveyQuestion, answerLabels):
 		background='transparent',
 		title_font_size=30,
 		tooltip_font_size=20,
+		legend_font_size=22
 	)
 	config = pygal.Config(
 		legend_at_bottom=True, 
-		legend_at_bottom_columns=2,
+		legend_at_bottom_columns=1,
 	)
 	pie_chart = pygal.Pie(config=config, style=style)
 	pie_chart.title = title

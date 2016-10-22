@@ -26,7 +26,8 @@ body {
 /* Not required for template or sticky footer method. */
 
 body > .container {
-  /* padding: 0px 15px 0; */
+  padding-top: 20px;
+  padding-bottom: 50px;
 }
 .row {
   padding-bottom: 5px;
