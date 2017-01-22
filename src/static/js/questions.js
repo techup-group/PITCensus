@@ -68,13 +68,6 @@ var surveyData = {
    questions: ["name_facility"]
    },
    {
-   type: "visible",
-   name: "where_stay_last_before90",
-   operator: "contains",
-   value: "Name",
-   questions: ["name_facility_less90"]
-   },
-   {
       type: "visible",
       name: "disability_status",
       operator:"equal",
@@ -239,7 +232,7 @@ var surveyData = {
                      text:"Place not meant for habitation (car, street)"
                   },
                   {
-                     value:"emergencyShelterName",
+                     value:"emergencyShelter",
                      text:"Emergency shelter (ES) / Safe Haven (SH)"
                   },
                   {
@@ -252,7 +245,7 @@ var surveyData = {
                type:"text",
                name:"name_facility_less90",
                title:"Name of Facility:",
-               visible:false
+               visibleIf:"{where_stay_last_before90}='emergencyShelter' and {how_long_since_streets_shelter_transitional}='less7'"
             }
          ]
       },

@@ -2,7 +2,6 @@
 {% block body %}
 
 <!-- CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
 <script src="http://maps.google.com/maps/api/js?key=AIzaSyAFj_jOorZy4XB7MVQEYI34IVdc6uq_R94"></script>
 
 <!-- Local scripts and data -->
@@ -24,6 +23,7 @@
     }
 
     $(document).ready(function() {
+        Survey.Survey.cssType = "bootstrap";
         var survey = new Survey.Survey(surveyData, "surveyContainer");
         //Use onComplete event to save the data           
         survey.onComplete.add(sendDataToServer);
