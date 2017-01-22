@@ -245,7 +245,7 @@ var surveyData = {
                type:"text",
                name:"name_facility_less90",
                title:"Name of Facility:",
-               visibleIf:"{where_stay_last_before90}='emergencyShelter' and {how_long_since_streets_shelter_transitional}='less7'"
+               visibleIf:"{where_stay_last_before90}='emergencyShelter' and {how_long_since_streets_shelter_transitional}='less7' and ({where_stay_last}='transitionalHousingName' or {where_stay_last}='psychiatric90' or {where_stay_last}='substanceAbuse90' or {where_stay_last}='jail90')"
             }
          ]
       },
