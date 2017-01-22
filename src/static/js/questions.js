@@ -41,6 +41,13 @@ var surveyData = {
    },
    { 
    type: "visible", 
+   name: "how_long_since_streets_shelter_transitional", 
+   operator: "equal", 
+   value: "less7", 
+   questions: ["where_stay_last_before90"] 
+   },
+   { 
+   type: "visible", 
    name: "where_stay_last", 
    operator: "contains", 
    value: "90", 
@@ -51,14 +58,21 @@ var surveyData = {
    name: "where_stay_last",
    operator: "contains",
    value: "Name",
+   questions: ["how_long_since_streets_shelter_transitional"]
+   },
+   {
+   type: "visible",
+   name: "where_stay_last",
+   operator: "contains",
+   value: "Name",
    questions: ["name_facility"]
    },
-   { 
-   type: "visible", 
-   name: "where_stay_last_before90", 
-   operator: "contains", 
-   value: "90", 
-   questions: ["name_facility_less90"] 
+   {
+   type: "visible",
+   name: "where_stay_last_before90",
+   operator: "contains",
+   value: "Name",
+   questions: ["name_facility_less90"]
    },
    {
       type: "visible",
@@ -143,6 +157,18 @@ var surveyData = {
                      text:"Hotel/Motel paid for by an agency or organization"
                   },
                   {
+                     value:"transitionalHousingName",
+                     text:"Transitional Housing"
+                  },
+                  {
+                     value:"nonHomelessSituation",
+                     text:"Non-Homeless situation.  Examples include:  Rental apartment/home, staying or living with friends or family, permanent supportive housing, long term care or nursing home, residential project or halfway house, or hotel/motel paid for by self."
+                  },
+                  {
+                    value:"familyOrFriends",
+                    text:"Staying with family or friends."
+                  },
+                  {
                      value:"psychiatric90",
                      text:"Psychiatric facility"
                   },
@@ -159,16 +185,8 @@ var surveyData = {
                      text:"Jail, prison, detention facility"
                   },
                   {
-                     value:"transitionalHousingName",
-                     text:"Transitional Housing"
-                  },
-                  {
                      value:"emergencyShelterName",
                      text:"Emergency shelter"
-                  },
-                  {
-                     value:"nonHomelessSituation",
-                     text:"Non-Homeless situation.  Examples include:  Rental apartment/home, staying or living with friends or family, permanent supportive housing, long term care or nursing home, residential project or halfway house, or hotel/motel paid for by self."
                   }
                ]
             },
@@ -177,6 +195,22 @@ var surveyData = {
                name:"name_facility",
                title:"Name of Facility:",
                visible:false
+            },
+            {
+               type:"radiogroup",
+               name:"how_long_since_streets_shelter_transitional",
+               title:"How long has it been since you slept on the streets or in and Emergency Shelter or Save Haven?",
+               visible:false,
+               choices:[
+               {
+                  value:"more7",
+                  text:"More than 7 days."
+               },
+               {
+                  value:"less7",
+                  text:"Less than 7 days."
+               }
+               ]
             },
             {
                type:"radiogroup",
@@ -197,40 +231,20 @@ var surveyData = {
             {
                type:"radiogroup",
                name:"where_stay_last_before90",
-               title:"Where did you stay right before entering the facility/jail/hospital:",
+               title:"Where did you stay right before entering the current situation:",
                visible:false,
                choices:[
-                                  {
+                  {
                      value:"notFit",
-                     text:"Place not meant for habitation (car, street, abandoned building, etc.)"
+                     text:"Place not meant for habitation (car, street)"
+                  },
+                  {
+                     value:"emergencyShelterName",
+                     text:"Emergency shelter (ES) / Safe Haven (SH)"
                   },
                   {
                      value:"hotel",
                      text:"Hotel/Motel paid for by an agency or organization"
-                  },
-                  {
-                     value:"psychiatric90",
-                     text:"Psychiatric facility"
-                  },
-                  {
-                     value:"substanceAbuse90",
-                     text:"Substance abuse treatment facility"
-                  },
-                  {
-                     value:"hospital90",
-                     text:"Hospital"
-                  },
-                  {
-                     value:"jail90",
-                     text:"Jail, prison, detention facility"
-                  },
-                  {
-                     value:"transitionalHousingName",
-                     text:"Transitional Housing"
-                  },
-                  {
-                     value:"emergencyShelterName",
-                     text:"Emergency shelter"
                   }
                ]
             },
@@ -315,6 +329,10 @@ var surveyData = {
                   {
                      value:"ftm",
                      text:"Transgender F to M"
+                  },
+                  {
+                    value:"other",
+                    text:"Does not identify as M, F, or Transgender"
                   }
                ]
             },
