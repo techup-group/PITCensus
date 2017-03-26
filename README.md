@@ -5,6 +5,8 @@ Description:
 > A mobile app is to be designed to capture quality, consistent data for the PIT Homeless counts. The app would capture the GPS location coordinates for each survey conducted to assist in understanding where within their community’s unsheltered individuals and families are encountered, providing valuable information for deployment of services.
 Point in time count
 
+For more information please consult the Digital PIT Census Reference.
+
 ## Running
 ```python
 pip install flask pymongo pygal
