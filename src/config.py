@@ -5,13 +5,14 @@ import ConfigParser
 from collections import namedtuple
 
 #What is the filename of the config file?
-config_file_location = '../pitconfig.ini'
+config_file_location = os.path.join(os.path.dirname(__file__), '..', 'pitconfig.ini')
 
 def readConfigFileToDict(filename):
     parser = ConfigParser.ConfigParser(allow_no_value=True)
-    parser.read(filename)
+    successFilenames = parser.read(filename)
+    if len(successFilenames) is 0:
+        raise Exception("Cannot read main config file " + config_file_location)
     dict = { }
-    parser.read(config_file_location)
     for section in parser.sections():
         dict[section] = { }
         for option in parser.options(section):
