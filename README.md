@@ -15,3 +15,11 @@ python src/backend.py
 ```
 
 
+## Survey in Action
+![PITCensusSurvey](https://imgur.com/sd0AWcC.png "Taking the Survey")
+
+![PITCensusSurvey2](https://imgur.com/OPYoCyK.png "Another page of the Survey")
+
+![Graphs1](https://imgur.com/J98h0cc.png "Results Graphs")
+
+![Graphs2](https://imgur.com/8hNBQRC.png "Results Graphs 2")
